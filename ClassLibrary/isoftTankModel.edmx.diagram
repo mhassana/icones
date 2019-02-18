@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="01918c487e314685abcb8a2481f6fb67" Name="Diagram1">
+        <EntityTypeShape EntityType="isoftTankModel.BC" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.BE_bac_bac" Width="1.5" PointX="8.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.BE_export" Width="1.5" PointX="11.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.BE_livraison" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.BE_Soutage" Width="1.5" PointX="11.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.BE_Transfert" Width="1.5" PointX="11.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Client" Width="1.5" PointX="1.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Commande_client" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Commande_marketer" Width="1.5" PointX="6" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Compte_marketer" Width="1.5" PointX="3.75" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Compte_utilisateur" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Depot" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Dette" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.FacturationClient" Width="1.5" PointX="5.25" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.FacturationMarketer" Width="1.5" PointX="8.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Fournisseur" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Historique" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.JoinBE_SoutageToNavire" Width="1.5" PointX="13.5" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.JoinDetteToProduit" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.JoinProduitToCommande_client" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.JoinTaxeToFacturation" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Marketer" Width="1.5" PointX="1.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Navire" Width="1.5" PointX="11.25" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Point_consommation" Width="1.5" PointX="0.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Pompe" Width="1.5" PointX="8.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Pompiste" Width="1.5" PointX="6" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Produit" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Reception" Width="1.5" PointX="5.25" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Reglement_dette" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Station" Width="1.5" PointX="3.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Stock" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Tanker" Width="1.5" PointX="6" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Taxe" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Tranche" Width="1.5" PointX="7.5" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.TrancheMarketer" Width="1.5" PointX="10.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Transaction_effectuee" Width="1.5" PointX="6" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Transporteur" Width="1.5" PointX="6" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Utilisateur" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.Vente_carburant" Width="1.5" PointX="8.25" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_BC" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_BE_bac_bac" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_BE_export" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_BE_livraison" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_BE_soutage" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_BE_transfert" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Client" Width="1.5" PointX="11.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Commande_client" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Commande_marketer" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Compte_marketer" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Compte_utilisateur" Width="1.5" PointX="13.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Depot" Width="1.5" PointX="13.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Dette" Width="1.5" PointX="13.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Facturation" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Fournisseur" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_JoinBE_soutageTo" Width="1.5" PointX="15.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_JoinBE_soutageToNavire" Width="1.5" PointX="15.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_JoinDetteToProduit" Width="1.5" PointX="15.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_JoinProduitToCommande_client" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_JoinTaxeToFacturation" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Marketer" Width="1.5" PointX="17.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Navire" Width="1.5" PointX="17.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Point_consommation" Width="1.5" PointX="17.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Pompe" Width="1.5" PointX="15.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Pompiste" Width="1.5" PointX="17.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Produit" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Reception" Width="1.5" PointX="19.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Reglement_dette" Width="1.5" PointX="19.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Stock" Width="1.5" PointX="19.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Tanker" Width="1.5" PointX="19.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Taxe" Width="1.5" PointX="19.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Tranche" Width="1.5" PointX="19.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Transaction_effectuee" Width="1.5" PointX="13.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Transporteur" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Utilisateur" Width="1.5" PointX="21.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="isoftTankModel.View_Vente_carburant" Width="1.5" PointX="21.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="isoftTankModel.FK_BC_Depot" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_bac_bac_Commande_marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_export_Commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_export_Depot" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_export_Transporteur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_livraison_Commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_livraison_Depot" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_livraison_Transporteur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_Soutage_Commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_Soutage_Depot" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_Soutage_Transporteur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinBE_SoutageToNavire_BE_Soutage" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_Transfert_Depot" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_BE_Transfert_Marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Dette_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Point_consommation_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Commande_client_Fournisseur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Commande_client_Point_consommation" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Commande_client_Produit" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Facturation_Facturation" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinProduitToCommande_client_Commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Reception_Commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Commande_marketer_Fournisseur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Commande_marketer_Marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Commande_marketer_Produit" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_FacturationMarketer_Commande_marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Compte_marketer_Marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Transaction_effectuee_Compte_marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Compte_utilisateur_Utilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Historique_Compte_utilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinDetteToProduit_Dette" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Tranche_Facturation" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_TrancheMarketer_FacturationMarketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinBE_SoutageToNavire_Navire" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinDetteToProduit_Produit" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinProduitToCommande_client_Produit" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_JoinTaxeToFacturation_Taxe" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Agence_Marketer" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Pompe_Tanker" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Pompiste_Station" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Vente_carburant_Pompiste" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Stock_Produit" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Tanker_Produit" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Stock_Station" ManuallyRouted="false" />
+        <AssociationConnector Association="isoftTankModel.FK_Tanker_Station" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
