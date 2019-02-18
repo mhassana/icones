@@ -70,7 +70,7 @@
     <Compile Include="BE_Transfert.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DAO\DAOMarketer.cs" />
     <Compile Include="Client.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>
