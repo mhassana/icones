@@ -37,8 +37,12 @@ namespace brouillon.Controllers
             try
             {
                 // TODO: Add insert logic here
+                var libelle = collection[""];
+                var designation = collection[""];
+                var prix = collection[""];
+                var unite_mesure = collection[""];
 
-                return RedirectToAction("Index");
+                return RedirectToAction("afficherTous");
             }
             catch
             {
