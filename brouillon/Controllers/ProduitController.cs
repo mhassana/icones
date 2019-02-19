@@ -27,7 +27,7 @@ namespace brouillon.Controllers
         // GET: Produit/Create
         public ActionResult Create()
         {
-            return View("ajouter");
+            return View();
         }
 
         // POST: Produit/Create
