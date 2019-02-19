@@ -91,6 +91,18 @@ namespace ClassLibrary
             return us.ToList();
         }
 
+
+        public Marketer rechercherUnique(Marketer m)
+        {
+            Marketer u = db.Marketers.First(x => x.nom == m.nom && x.pays == m.pays && x.ville == m.ville);
+
+            //verification de l'existence de l'objet dans la bd
+            if (u != null) return u;
+
+            return null;
+            
+        }
+
         public IEnumerable<Marketer> rechercherTous()
         {
             return db.Marketers.ToList();

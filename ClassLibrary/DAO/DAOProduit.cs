@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOProduit
+    public class DAOProduit
     {
         private isoftTankEntities db = null;
 
@@ -89,9 +89,21 @@ namespace ClassLibrary.DAO
             return us.ToList();
         }
 
-        public IEnumerable<Marketer> rechercherTous()
+
+        public Produit rechercherUnique(Produit m)
         {
-            return db.Marketers.ToList();
+            Produit u = db.Produits.First(x => x.designation == m.designation && x.libelle == m.libelle && x.prix == m.prix && x.unite_mesure == m.unite_mesure);
+
+            //verification de l'existence de l'objet dans la bd
+            if (u != null) return u;
+
+            return null;
+
+        }
+
+        public IEnumerable<Produit> rechercherTous()
+        {
+            return db.Produits.ToList();
 
         }
 

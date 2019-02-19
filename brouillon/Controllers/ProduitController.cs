@@ -4,66 +4,55 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ClassLibrary;
+using ClassLibrary.DAO;
 
 namespace brouillon.Controllers
 {
-    public class MarketerController : Controller
+    public class ProduitController : Controller
     {
-        DAOMarketer dao = new DAOMarketer();
-        // GET: Marketer
+        DAOProduit dao = new DAOProduit();
+
+        // GET: Produit
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Marketer/Details/5
+        // GET: Produit/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        public ActionResult Creer()
+        // GET: Produit/Create
+        public ActionResult Create()
         {
             return View("ajouter");
         }
 
-        // GET: Marketer/Create
-        public ActionResult Create(Marketer m)
-        {
-            Marketer m2 = dao.rechercherUnique(m);
-            if (m2 == null)
-            {
-                CreateMarketer(m);
-
-                return View("afficherTous");
-            }
-
-            else
-            {
-                return View("ajouter");
-            }
-        }
-
-        // POST: Marketer/Create
+        // POST: Produit/Create
         [HttpPost]
-        public void CreateMarketer(Marketer m)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                dao.ajouter(m);
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
             }
             catch
             {
+                return View();
             }
         }
 
-        // GET: Marketer/Edit/5
+        // GET: Produit/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Marketer/Edit/5
+        // POST: Produit/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -79,13 +68,13 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Marketer/Delete/5
+        // GET: Produit/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Marketer/Delete/5
+        // POST: Produit/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -103,9 +92,9 @@ namespace brouillon.Controllers
 
         public ActionResult afficherTous()
         {
-            IEnumerable<Marketer> ls = dao.rechercherTous();
+            IEnumerable<Produit> ls = dao.rechercherTous();
 
-            ViewBag.listeMarketer = ls;
+            ViewBag.listeProduit = ls;
 
             return View();
         }
