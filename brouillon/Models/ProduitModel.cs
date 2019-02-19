@@ -14,5 +14,7 @@ namespace brouillon.Models
         public decimal Prix { get; set; }
 
         public string Unite_mesure { get; set; }
+
+        public string CodeU { get; set; }
     }
 }

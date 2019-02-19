@@ -37,15 +37,27 @@ namespace brouillon.Controllers
             try
             {
                 // TODO: Add insert logic here
-                var libelle = collection[""];
-                var designation = collection[""];
-                var prix = collection[""];
-                var unite_mesure = collection[""];
+                var libelle = collection["Libelle"];
+                var designation = collection["Designation"];
+                var prix = collection["Prix"];
+                var unite_mesure = collection["Unite_mesure"];
+                var code_u = collection["CodeU"];
+
+                Produit p = new Produit
+                {
+                    libelle = libelle,
+                    designation = designation,
+                    prix = decimal.Parse(prix),
+                    unite_mesure = unite_mesure
+                };
+
+                dao.ajouter(p);
 
                 return RedirectToAction("afficherTous");
             }
-            catch
+            catch(Exception ex)
             {
+                ViewBag.Erreur = ex.Message;
                 return View();
             }
         }
