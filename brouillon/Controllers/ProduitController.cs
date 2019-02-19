@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ClassLibrary;
 using ClassLibrary.DAO;
+using brouillon.Models;
 
 namespace brouillon.Controllers
 {
@@ -22,11 +23,23 @@ namespace brouillon.Controllers
         public ActionResult Details(string code)
         {
             Produit produit = dao.rechercher(code);
+
+            ProduitModel pm = new ProduitModel
+            {
+                CodePRODUIT = produit.codePRODUIT,
+                CodeU = produit.codeU,
+                date_c = produit.date_c,
+                Designation = produit.designation,
+                Libelle = produit.libelle,
+                Prix = produit.prix,
+                Unite_mesure = produit.unite_mesure
+            };
+
             if (produit == null)
             {
                 return HttpNotFound();
             }
-            return View(produit);
+            return View(pm);
         }
 
         // GET: Produit/Create
