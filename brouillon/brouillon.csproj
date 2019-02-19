@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarketerController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
+    <Compile Include="DAL\isoftTankContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +247,7 @@
     <Content Include="Views\Marketer\ajouter.cshtml" />
     <Content Include="Views\Produit\afficherTous.cshtml" />
     <Content Include="Views\Produit\Create.cshtml" />
+    <Content Include="Views\Produit\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
