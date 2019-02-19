@@ -51,7 +51,8 @@ namespace ClassLibrary.DAO
 
         public Produit rechercher(string code)
         {
-            Produit u = db.Produits.First(x => x.codePRODUIT == code);
+            Produit u = new Produit();
+            u = db.Produits.First(x => x.codePRODUIT == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;

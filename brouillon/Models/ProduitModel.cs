@@ -19,6 +19,8 @@ namespace brouillon.Models
 
         public string Unite_mesure { get; set; }
 
+        public DateTime date_c { get; set; }
+
         public string CodeU { get; set; }
     }
 }

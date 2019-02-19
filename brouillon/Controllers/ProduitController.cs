@@ -19,9 +19,14 @@ namespace brouillon.Controllers
         }
 
         // GET: Produit/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string code)
         {
-            return View();
+            Produit produit = dao.rechercher(code);
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produit);
         }
 
         // GET: Produit/Create

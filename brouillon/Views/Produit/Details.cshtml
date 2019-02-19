@@ -1,0 +1,75 @@
+﻿@model brouillon.Models.ProduitModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produit Model</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodePRODUIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodePRODUIT)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unite_mesure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unite_mesure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_c)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_c)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CodePRODUIT }) |
+    @Html.ActionLink("Back to List", "afficherTous", "Produit")
+</p>
