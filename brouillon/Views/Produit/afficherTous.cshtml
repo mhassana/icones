@@ -1,0 +1,54 @@
+﻿@model IEnumerable<brouillon.Models.ProduitModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produits enregistres.</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Code
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)
+        </th>
+        <th>
+            Unite de mesure
+        </th>
+        <th>
+            Date de creation
+        </th>
+        <th>
+            Operation
+        </th>
+    </tr>
+
+@foreach (ClassLibrary.Produit m in ViewBag.listeProduit) {
+    <tr>
+        <td>@m.codePRODUIT</td>
+        <td>@m.libelle</td>
+        <td>@m.designation</td>
+        <td>@m.prix</td>
+        <td>@m.unite_mesure</td>
+        <td>@m.date_c</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code = m.codePRODUIT }) |
+            @Html.ActionLink("Details", "Details", new { code = m.codePRODUIT }) |
+            @Html.ActionLink("Delete", "Delete", new { code = m.codePRODUIT })
+        </td>
+    </tr>
+}
+
+</table>
