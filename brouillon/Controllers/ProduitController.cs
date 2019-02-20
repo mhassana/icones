@@ -158,8 +158,10 @@ namespace brouillon.Controllers
         // POST: Produit/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Produit p)
+        public ActionResult Delete(string code)
         {
+            Produit p = new Produit { codePRODUIT = code };
+
             try
             {
                 dao.supprimer(p);

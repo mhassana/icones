@@ -52,7 +52,7 @@ namespace ClassLibrary.DAO
 
         public Produit supprimer(Produit u)
         {
-            Produit u2 = rechercher(u.codePRODUIT);
+            Produit u2 = db.Produits.First(x => x.codePRODUIT == u.codePRODUIT);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
