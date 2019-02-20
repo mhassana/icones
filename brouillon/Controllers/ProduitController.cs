@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ClassLibrary;
 using ClassLibrary.DAO;
 using brouillon.Models;
+using System.Data;
 
 namespace brouillon.Controllers
 {
@@ -45,7 +46,10 @@ namespace brouillon.Controllers
         // GET: Produit/Create
         public ActionResult Create()
         {
-            return View();
+
+            ProduitModel pm = new ProduitModel();
+
+            return View("Create", pm);
         }
 
         // POST: Produit/Create
@@ -55,21 +59,23 @@ namespace brouillon.Controllers
             try
             {
                 // TODO: Add insert logic here
-                var libelle = collection["Libelle"];
-                var designation = collection["Designation"];
-                var prix = collection["Prix"];
-                var unite_mesure = collection["Unite_mesure"];
-                var code_u = collection["CodeU"];
-
-                Produit p = new Produit
+                Produit produit = new Produit
                 {
-                    libelle = libelle,
-                    designation = designation,
-                    prix = decimal.Parse(prix),
-                    unite_mesure = unite_mesure
-                };
+                    libelle = collection["libelle"],
+                    designation = collection["designation"],
+                    prix = decimal.Parse(collection["prix"]),
+                    unite_mesure = collection["unite_mesure"],
 
-                dao.ajouter(p);
+
+                    //*******
+
+                    codeU = collection["codeU"],
+                    date_c = DateTime.Now,
+                    codePRODUIT = "PDT20192208"
+                };
+                
+
+                dao.ajouter(produit);
 
                 return RedirectToAction("afficherTous");
             }
@@ -81,20 +87,39 @@ namespace brouillon.Controllers
         }
 
         // GET: Produit/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string code)
         {
-            return View();
+            Produit produit = dao.rechercher(code);
+
+            ProduitModel pm = new ProduitModel
+            {
+                Designation = produit.designation,
+                Libelle = produit.libelle,
+                Prix = produit.prix,
+                Unite_mesure = produit.unite_mesure,
+
+
+                ///*******
+
+                CodePRODUIT = produit.codePRODUIT,
+                CodeU = produit.codeU,
+                date_c = produit.date_c
+            };
+
+            return View(pm);
         }
 
         // POST: Produit/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Produit p)
         {
             try
             {
+
+                dao.modifier(p);
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("afficherTous");
             }
             catch
             {
@@ -103,25 +128,48 @@ namespace brouillon.Controllers
         }
 
         // GET: Produit/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string code, bool? saveChangesError = false)
         {
-            return View();
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
+            }
+            Produit produit = dao.rechercher(code);
+
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+
+            ProduitModel pm = new ProduitModel
+            {
+                CodePRODUIT = produit.codePRODUIT,
+                Libelle = produit.libelle,
+                Designation = produit.designation,
+                Prix = produit.prix,
+                Unite_mesure = produit.unite_mesure,
+                date_c = produit.date_c,
+                CodeU = produit.codeU
+            };
+
+            return View(pm);
         }
 
         // POST: Produit/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(Produit p)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                dao.supprimer(p);
             }
-            catch
+            catch (DataException/* dex */)
             {
-                return View();
+                // uncomment dex and log error. 
+                return RedirectToAction("Delete", new { code = p.codePRODUIT, saveChangesError = true });
             }
+            return RedirectToAction("afficherTous");
         }
 
         public ActionResult afficherTous()

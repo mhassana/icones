@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,28 +39,13 @@ namespace ClassLibrary.DAO
                 u2.unite_mesure = u.unite_mesure;
 
                 //sauvegarde des nouvelles informations
-
+                db.Entry(u2).State = EntityState.Modified;
                 db.SaveChanges();
                 return u;
             }
             else
             {
                 u.designation = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
-            }
-        }
-
-        public Produit rechercher(string code)
-        {
-            Produit u = new Produit();
-            u = db.Produits.First(x => x.codePRODUIT == code);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.designation = "Aucun enregistrement trouve.";
                 return u;
             }
         }
@@ -82,6 +68,22 @@ namespace ClassLibrary.DAO
                 return u2;
             }
         }
+
+
+        public Produit rechercher(string code)
+        {
+            Produit u = db.Produits.First(x => x.codePRODUIT == code);
+
+            //verification de l'existence de l'objet dans la bd
+            if (u != null) return u;
+
+            else
+            {
+                u.designation = "Aucun enregistrement trouve.";
+                return u;
+            }
+        }
+
 
         public IEnumerable<Produit> rechercherParMC(Func<Produit, bool> predicate)
         {
