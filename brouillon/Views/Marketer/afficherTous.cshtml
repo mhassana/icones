@@ -1,37 +1,55 @@
-﻿
+﻿@model IEnumerable<brouillon.Models.MarketerModel>
+
 @{
     ViewBag.Title = "afficherTous";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table style="width:100%;">
-    <tr>
-        <th>Code</th>
-        <th>Nom</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Adresse</th>
-        <th>Ville</th>
-        <th>Pays</th>
-        <th>Date creation</th>
-    </tr>
-        @{
-            foreach (ClassLibrary.Marketer m in ViewBag.listeMarketer)
-            {
-                <tr>
-                    <td>@m.codeMARKETER</td>
-                    <td>@m.nom</td>
-                    <td>@m.telephone</td>
-                    <td>@m.email</td>
-                    <td>@m.adresse</td>
-                    <td>@m.ville</td>
-                    <td>@m.pays</td>
-                    <td>@m.date_c</td>
-                </tr>
-            }
-        }
+<h2>Marketer enregistres.</h2>
 
-   
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nom
+        </th>
+        <th>
+            email
+        </th>
+        <th>
+            pays
+        </th>
+        <th>
+            ville
+        </th>
+        <th>
+            Telephone
+        </th>
+        <th>
+            Adresse
+        </th>
+        <th>
+            Operation
+        </th>
+    </tr>
+
+    @foreach (ClassLibrary.Marketer m in ViewBag.listeMarketer)
+    {
+        <tr>
+            <td>@m.nom</td>
+            <td>@m.email</td>
+            <td>@m.pays</td>
+            <td>@m.ville</td>
+            <td>@m.telephone</td>
+            <td>@m.adresse</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { code = m.codeMARKETER}) |
+                @Html.ActionLink("Details", "Details", new { code = m.codeMARKETER }) |
+                @Html.ActionLink("Delete", "Delete", new { code = m.codeMARKETER })
+            </td>
+        </tr>
+    }
 
 </table>
-<br /> <br />
-@Html.ActionLink("Ajouter un marketer", "Creer", "Marketer")

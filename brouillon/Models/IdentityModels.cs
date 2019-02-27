@@ -29,5 +29,7 @@ namespace brouillon.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<brouillon.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

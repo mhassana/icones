@@ -243,13 +243,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Marketer\afficherTous.cshtml" />
-    <Content Include="Views\Marketer\ajouter2.cshtml" />
-    <Content Include="Views\Marketer\ajouter.cshtml" />
     <Content Include="Views\Produit\afficherTous.cshtml" />
     <Content Include="Views\Produit\Create.cshtml" />
     <Content Include="Views\Produit\Details.cshtml" />
     <Content Include="Views\Produit\Edit.cshtml" />
     <Content Include="Views\Produit\Delete.cshtml" />
+    <Content Include="Views\Marketer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
