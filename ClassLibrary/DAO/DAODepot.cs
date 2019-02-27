@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAODepot
+    public class DAODepot
     {
         private isoftTankEntities db = null;
 
@@ -17,8 +17,17 @@ namespace ClassLibrary.DAO
 
         public Depot ajouter(Depot u)
         {
-            db.Depots.Add(u);
-            db.SaveChanges();
+            try
+            {
+                if (db.creerDepot(u.adresse, u.email, u.localisation, u.nom, u.pays, u.telephone, u.ville, u.codeU) != 1)
+                    
+                    u.nom = "Erreur rencontree. Details >>> ";
+
+            }
+            catch (Exception ex)
+            {
+                u.nom = ex.StackTrace;
+            }
 
             return u;
         }
@@ -26,10 +35,10 @@ namespace ClassLibrary.DAO
         public Depot modifier(Depot u)
         {
             //recherche de l'objet dans la bd
-            Depot u2 = db.Depots.First(x => x.codeDEPOT == u.codeDEPOT);
+            Depot u2 = new Depot();
 
             //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u != null)
             {
                 //mise a jour des modifications
                 u2.adresse = u.adresse;
@@ -39,17 +48,20 @@ namespace ClassLibrary.DAO
                 u2.telephone = u.telephone;
                 u2.ville = u.ville;
                 u2.localisation = u.localisation;
-
+            }
                 //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
-            }
-            else
-            {
-                u.nom = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
-            }
+                try
+                {
+                    if (db.modifierDepot(u2.codeDEPOT, u2.adresse, u2.email, u2.localisation, u2.nom, u2.pays, u2.telephone, u2.ville, u2.codeU) != 1)
+                        u2.nom = "Erreur rencontree. Details >>> ";
+                }
+                catch (Exception ex)
+                {
+                    u2.nom = ex.StackTrace;
+                }
+
+                return u2;
         }
 
         public Depot rechercher(string code)
@@ -68,21 +80,22 @@ namespace ClassLibrary.DAO
 
         public Depot supprimer(Depot u)
         {
-            Depot u2 = rechercher(u.codeDEPOT);
 
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u != null)
             {
-                db.Depots.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
 
-            else
-            {
-                u2.nom = "Aucun enregistrement trouve.";
-                return u2;
+                try
+                {
+                    db.supprimerDepot(u.codeDEPOT, u.codeU);
+                    u.nom = "Erreur rencontree. Details >>> ";
+                }
+                catch (Exception ex)
+                {
+                    u.nom = ex.StackTrace;
+                }
+
             }
+                return u;
         }
 
         public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)

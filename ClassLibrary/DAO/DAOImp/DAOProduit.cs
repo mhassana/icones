@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
 namespace ClassLibrary.DAO
 {
-    public class DAOProduit
+    public class DAOProduit : IDAOProduit
     {
         private isoftTankEntities db = null;
 

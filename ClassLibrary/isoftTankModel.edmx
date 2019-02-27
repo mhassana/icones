@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="isoftTankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="isoftTankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BC">
           <Key>
             <PropertyRef Name="codeBC" />
@@ -2582,376 +2582,376 @@ warning 6002: The table/view 'isoftTank.dbo.View_Vente_carburant' does not have 
           <EntitySet Name="Vente_carburant" EntityType="Self.Vente_carburant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="View_BC" EntityType="Self.View_BC" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_BC].[date_emission] AS [date_emission], 
-    [View_BC].[quantite] AS [quantite], 
-    [View_BC].[bCID] AS [bCID], 
-    [View_BC].[depotID] AS [depotID], 
-    [View_BC].[code] AS [code]
-    FROM [dbo].[View_BC] AS [View_BC]</DefiningQuery>
+[View_BC].[date_emission] AS [date_emission], 
+[View_BC].[quantite] AS [quantite], 
+[View_BC].[bCID] AS [bCID], 
+[View_BC].[depotID] AS [depotID], 
+[View_BC].[code] AS [code]
+FROM [dbo].[View_BC] AS [View_BC]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_BE_bac_bac" EntityType="Self.View_BE_bac_bac" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_BE_bac_bac].[libelle] AS [libelle], 
-    [View_BE_bac_bac].[quantite] AS [quantite], 
-    [View_BE_bac_bac].[bE_bac_bacID] AS [bE_bac_bacID], 
-    [View_BE_bac_bac].[commande_marketerID] AS [commande_marketerID], 
-    [View_BE_bac_bac].[depotID] AS [depotID], 
-    [View_BE_bac_bac].[code] AS [code]
-    FROM [dbo].[View_BE_bac_bac] AS [View_BE_bac_bac]</DefiningQuery>
+[View_BE_bac_bac].[libelle] AS [libelle], 
+[View_BE_bac_bac].[quantite] AS [quantite], 
+[View_BE_bac_bac].[bE_bac_bacID] AS [bE_bac_bacID], 
+[View_BE_bac_bac].[commande_marketerID] AS [commande_marketerID], 
+[View_BE_bac_bac].[depotID] AS [depotID], 
+[View_BE_bac_bac].[code] AS [code]
+FROM [dbo].[View_BE_bac_bac] AS [View_BE_bac_bac]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_BE_export" EntityType="Self.View_BE_export" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_BE_export].[adresse] AS [adresse], 
-    [View_BE_export].[cni_chauffeur] AS [cni_chauffeur], 
-    [View_BE_export].[date_emission] AS [date_emission], 
-    [View_BE_export].[duree_validite] AS [duree_validite], 
-    [View_BE_export].[immatriculation_camion] AS [immatriculation_camion], 
-    [View_BE_export].[nom_chauffeur] AS [nom_chauffeur], 
-    [View_BE_export].[num_decl_douane_im7] AS [num_decl_douane_im7], 
-    [View_BE_export].[pays_destination] AS [pays_destination], 
-    [View_BE_export].[quantite] AS [quantite], 
-    [View_BE_export].[ville_destination] AS [ville_destination], 
-    [View_BE_export].[bE_exportID] AS [bE_exportID], 
-    [View_BE_export].[commande_clientID] AS [commande_clientID], 
-    [View_BE_export].[depotID] AS [depotID], 
-    [View_BE_export].[transporteurID] AS [transporteurID], 
-    [View_BE_export].[code] AS [code]
-    FROM [dbo].[View_BE_export] AS [View_BE_export]</DefiningQuery>
+[View_BE_export].[adresse] AS [adresse], 
+[View_BE_export].[cni_chauffeur] AS [cni_chauffeur], 
+[View_BE_export].[date_emission] AS [date_emission], 
+[View_BE_export].[duree_validite] AS [duree_validite], 
+[View_BE_export].[immatriculation_camion] AS [immatriculation_camion], 
+[View_BE_export].[nom_chauffeur] AS [nom_chauffeur], 
+[View_BE_export].[num_decl_douane_im7] AS [num_decl_douane_im7], 
+[View_BE_export].[pays_destination] AS [pays_destination], 
+[View_BE_export].[quantite] AS [quantite], 
+[View_BE_export].[ville_destination] AS [ville_destination], 
+[View_BE_export].[bE_exportID] AS [bE_exportID], 
+[View_BE_export].[commande_clientID] AS [commande_clientID], 
+[View_BE_export].[depotID] AS [depotID], 
+[View_BE_export].[transporteurID] AS [transporteurID], 
+[View_BE_export].[code] AS [code]
+FROM [dbo].[View_BE_export] AS [View_BE_export]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_BE_livraison" EntityType="Self.View_BE_livraison" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_BE_livraison].[cni_chauffeur] AS [cni_chauffeur], 
-    [View_BE_livraison].[date_emission] AS [date_emission], 
-    [View_BE_livraison].[duree_validite] AS [duree_validite], 
-    [View_BE_livraison].[immatriculation_camion] AS [immatriculation_camion], 
-    [View_BE_livraison].[nom_chauffeur] AS [nom_chauffeur], 
-    [View_BE_livraison].[bE_livraisonID] AS [bE_livraisonID], 
-    [View_BE_livraison].[commande_clientID] AS [commande_clientID], 
-    [View_BE_livraison].[point_consommationID] AS [point_consommationID], 
-    [View_BE_livraison].[depotID] AS [depotID], 
-    [View_BE_livraison].[transporteurID] AS [transporteurID], 
-    [View_BE_livraison].[code] AS [code]
-    FROM [dbo].[View_BE_livraison] AS [View_BE_livraison]</DefiningQuery>
+[View_BE_livraison].[cni_chauffeur] AS [cni_chauffeur], 
+[View_BE_livraison].[date_emission] AS [date_emission], 
+[View_BE_livraison].[duree_validite] AS [duree_validite], 
+[View_BE_livraison].[immatriculation_camion] AS [immatriculation_camion], 
+[View_BE_livraison].[nom_chauffeur] AS [nom_chauffeur], 
+[View_BE_livraison].[bE_livraisonID] AS [bE_livraisonID], 
+[View_BE_livraison].[commande_clientID] AS [commande_clientID], 
+[View_BE_livraison].[point_consommationID] AS [point_consommationID], 
+[View_BE_livraison].[depotID] AS [depotID], 
+[View_BE_livraison].[transporteurID] AS [transporteurID], 
+[View_BE_livraison].[code] AS [code]
+FROM [dbo].[View_BE_livraison] AS [View_BE_livraison]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_BE_soutage" EntityType="Self.View_BE_soutage" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_BE_soutage].[date_emission] AS [date_emission], 
-    [View_BE_soutage].[duree_validite] AS [duree_validite], 
-    [View_BE_soutage].[immatriculation_camion] AS [immatriculation_camion], 
-    [View_BE_soutage].[nom_chauffeur] AS [nom_chauffeur], 
-    [View_BE_soutage].[nom_client] AS [nom_client], 
-    [View_BE_soutage].[quantite] AS [quantite], 
-    [View_BE_soutage].[bE_SoutageID] AS [bE_SoutageID], 
-    [View_BE_soutage].[commande_clientID] AS [commande_clientID], 
-    [View_BE_soutage].[depotID] AS [depotID], 
-    [View_BE_soutage].[transporteurID] AS [transporteurID], 
-    [View_BE_soutage].[code] AS [code]
-    FROM [dbo].[View_BE_soutage] AS [View_BE_soutage]</DefiningQuery>
+[View_BE_soutage].[date_emission] AS [date_emission], 
+[View_BE_soutage].[duree_validite] AS [duree_validite], 
+[View_BE_soutage].[immatriculation_camion] AS [immatriculation_camion], 
+[View_BE_soutage].[nom_chauffeur] AS [nom_chauffeur], 
+[View_BE_soutage].[nom_client] AS [nom_client], 
+[View_BE_soutage].[quantite] AS [quantite], 
+[View_BE_soutage].[bE_SoutageID] AS [bE_SoutageID], 
+[View_BE_soutage].[commande_clientID] AS [commande_clientID], 
+[View_BE_soutage].[depotID] AS [depotID], 
+[View_BE_soutage].[transporteurID] AS [transporteurID], 
+[View_BE_soutage].[code] AS [code]
+FROM [dbo].[View_BE_soutage] AS [View_BE_soutage]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_BE_transfert" EntityType="Self.View_BE_transfert" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_BE_transfert].[date_emission] AS [date_emission], 
-    [View_BE_transfert].[duree_validite] AS [duree_validite], 
-    [View_BE_transfert].[immatriculation_camion] AS [immatriculation_camion], 
-    [View_BE_transfert].[nom_chauffeur] AS [nom_chauffeur], 
-    [View_BE_transfert].[quantite] AS [quantite], 
-    [View_BE_transfert].[bE_TransfertID] AS [bE_TransfertID], 
-    [View_BE_transfert].[marketerID] AS [marketerID], 
-    [View_BE_transfert].[depotID] AS [depotID], 
-    [View_BE_transfert].[code] AS [code]
-    FROM [dbo].[View_BE_transfert] AS [View_BE_transfert]</DefiningQuery>
+[View_BE_transfert].[date_emission] AS [date_emission], 
+[View_BE_transfert].[duree_validite] AS [duree_validite], 
+[View_BE_transfert].[immatriculation_camion] AS [immatriculation_camion], 
+[View_BE_transfert].[nom_chauffeur] AS [nom_chauffeur], 
+[View_BE_transfert].[quantite] AS [quantite], 
+[View_BE_transfert].[bE_TransfertID] AS [bE_TransfertID], 
+[View_BE_transfert].[marketerID] AS [marketerID], 
+[View_BE_transfert].[depotID] AS [depotID], 
+[View_BE_transfert].[code] AS [code]
+FROM [dbo].[View_BE_transfert] AS [View_BE_transfert]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Client" EntityType="Self.View_Client" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Client].[adresse] AS [adresse], 
-    [View_Client].[email] AS [email], 
-    [View_Client].[nom] AS [nom], 
-    [View_Client].[pays] AS [pays], 
-    [View_Client].[telephone] AS [telephone], 
-    [View_Client].[ville] AS [ville], 
-    [View_Client].[clientID] AS [clientID], 
-    [View_Client].[code] AS [code]
-    FROM [dbo].[View_Client] AS [View_Client]</DefiningQuery>
+[View_Client].[adresse] AS [adresse], 
+[View_Client].[email] AS [email], 
+[View_Client].[nom] AS [nom], 
+[View_Client].[pays] AS [pays], 
+[View_Client].[telephone] AS [telephone], 
+[View_Client].[ville] AS [ville], 
+[View_Client].[clientID] AS [clientID], 
+[View_Client].[code] AS [code]
+FROM [dbo].[View_Client] AS [View_Client]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Commande_client" EntityType="Self.View_Commande_client" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Commande_client].[date_c] AS [date_c], 
-    [View_Commande_client].[quantite] AS [quantite], 
-    [View_Commande_client].[commande_clientID] AS [commande_clientID], 
-    [View_Commande_client].[clientID] AS [clientID], 
-    [View_Commande_client].[fournisseurID] AS [fournisseurID], 
-    [View_Commande_client].[code] AS [code]
-    FROM [dbo].[View_Commande_client] AS [View_Commande_client]</DefiningQuery>
+[View_Commande_client].[date_c] AS [date_c], 
+[View_Commande_client].[quantite] AS [quantite], 
+[View_Commande_client].[commande_clientID] AS [commande_clientID], 
+[View_Commande_client].[clientID] AS [clientID], 
+[View_Commande_client].[fournisseurID] AS [fournisseurID], 
+[View_Commande_client].[code] AS [code]
+FROM [dbo].[View_Commande_client] AS [View_Commande_client]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Commande_marketer" EntityType="Self.View_Commande_marketer" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Commande_marketer].[date_c] AS [date_c], 
-    [View_Commande_marketer].[quantite] AS [quantite], 
-    [View_Commande_marketer].[commande_marketerID] AS [commande_marketerID], 
-    [View_Commande_marketer].[marketerID] AS [marketerID], 
-    [View_Commande_marketer].[fournisseurID] AS [fournisseurID], 
-    [View_Commande_marketer].[code] AS [code]
-    FROM [dbo].[View_Commande_marketer] AS [View_Commande_marketer]</DefiningQuery>
+[View_Commande_marketer].[date_c] AS [date_c], 
+[View_Commande_marketer].[quantite] AS [quantite], 
+[View_Commande_marketer].[commande_marketerID] AS [commande_marketerID], 
+[View_Commande_marketer].[marketerID] AS [marketerID], 
+[View_Commande_marketer].[fournisseurID] AS [fournisseurID], 
+[View_Commande_marketer].[code] AS [code]
+FROM [dbo].[View_Commande_marketer] AS [View_Commande_marketer]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Compte_marketer" EntityType="Self.View_Compte_marketer" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Compte_marketer].[montant_net] AS [montant_net], 
-    [View_Compte_marketer].[compte_marketerID] AS [compte_marketerID], 
-    [View_Compte_marketer].[marketerID] AS [marketerID], 
-    [View_Compte_marketer].[code] AS [code]
-    FROM [dbo].[View_Compte_marketer] AS [View_Compte_marketer]</DefiningQuery>
+[View_Compte_marketer].[montant_net] AS [montant_net], 
+[View_Compte_marketer].[compte_marketerID] AS [compte_marketerID], 
+[View_Compte_marketer].[marketerID] AS [marketerID], 
+[View_Compte_marketer].[code] AS [code]
+FROM [dbo].[View_Compte_marketer] AS [View_Compte_marketer]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Compte_utilisateur" EntityType="Self.View_Compte_utilisateur" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Compte_utilisateur].[indice] AS [indice], 
-    [View_Compte_utilisateur].[login] AS [login], 
-    [View_Compte_utilisateur].[mdp] AS [mdp], 
-    [View_Compte_utilisateur].[niveau] AS [niveau], 
-    [View_Compte_utilisateur].[statut] AS [statut], 
-    [View_Compte_utilisateur].[compte_utilisateurID] AS [compte_utilisateurID], 
-    [View_Compte_utilisateur].[utilisateurID] AS [utilisateurID], 
-    [View_Compte_utilisateur].[code] AS [code]
-    FROM [dbo].[View_Compte_utilisateur] AS [View_Compte_utilisateur]</DefiningQuery>
+[View_Compte_utilisateur].[indice] AS [indice], 
+[View_Compte_utilisateur].[login] AS [login], 
+[View_Compte_utilisateur].[mdp] AS [mdp], 
+[View_Compte_utilisateur].[niveau] AS [niveau], 
+[View_Compte_utilisateur].[statut] AS [statut], 
+[View_Compte_utilisateur].[compte_utilisateurID] AS [compte_utilisateurID], 
+[View_Compte_utilisateur].[utilisateurID] AS [utilisateurID], 
+[View_Compte_utilisateur].[code] AS [code]
+FROM [dbo].[View_Compte_utilisateur] AS [View_Compte_utilisateur]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Depot" EntityType="Self.View_Depot" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Depot].[adresse] AS [adresse], 
-    [View_Depot].[email] AS [email], 
-    [View_Depot].[localisation] AS [localisation], 
-    [View_Depot].[nom] AS [nom], 
-    [View_Depot].[pays] AS [pays], 
-    [View_Depot].[telephone] AS [telephone], 
-    [View_Depot].[ville] AS [ville], 
-    [View_Depot].[depotID] AS [depotID], 
-    [View_Depot].[code] AS [code]
-    FROM [dbo].[View_Depot] AS [View_Depot]</DefiningQuery>
+[View_Depot].[adresse] AS [adresse], 
+[View_Depot].[email] AS [email], 
+[View_Depot].[localisation] AS [localisation], 
+[View_Depot].[nom] AS [nom], 
+[View_Depot].[pays] AS [pays], 
+[View_Depot].[telephone] AS [telephone], 
+[View_Depot].[ville] AS [ville], 
+[View_Depot].[depotID] AS [depotID], 
+[View_Depot].[code] AS [code]
+FROM [dbo].[View_Depot] AS [View_Depot]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Dette" EntityType="Self.View_Dette" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Dette].[date_dette] AS [date_dette], 
-    [View_Dette].[montant_paye] AS [montant_paye], 
-    [View_Dette].[montant_restant] AS [montant_restant], 
-    [View_Dette].[montant_total] AS [montant_total], 
-    [View_Dette].[quantite] AS [quantite], 
-    [View_Dette].[detteID] AS [detteID], 
-    [View_Dette].[clientID] AS [clientID], 
-    [View_Dette].[code] AS [code]
-    FROM [dbo].[View_Dette] AS [View_Dette]</DefiningQuery>
+[View_Dette].[date_dette] AS [date_dette], 
+[View_Dette].[montant_paye] AS [montant_paye], 
+[View_Dette].[montant_restant] AS [montant_restant], 
+[View_Dette].[montant_total] AS [montant_total], 
+[View_Dette].[quantite] AS [quantite], 
+[View_Dette].[detteID] AS [detteID], 
+[View_Dette].[clientID] AS [clientID], 
+[View_Dette].[code] AS [code]
+FROM [dbo].[View_Dette] AS [View_Dette]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Facturation" EntityType="Self.View_Facturation" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Facturation].[date_c] AS [date_c], 
-    [View_Facturation].[libelle] AS [libelle], 
-    [View_Facturation].[montant_paye] AS [montant_paye], 
-    [View_Facturation].[montant_restant] AS [montant_restant], 
-    [View_Facturation].[montant_total] AS [montant_total], 
-    [View_Facturation].[facturationID] AS [facturationID], 
-    [View_Facturation].[commande_clientID] AS [commande_clientID], 
-    [View_Facturation].[code] AS [code]
-    FROM [dbo].[View_Facturation] AS [View_Facturation]</DefiningQuery>
+[View_Facturation].[date_c] AS [date_c], 
+[View_Facturation].[libelle] AS [libelle], 
+[View_Facturation].[montant_paye] AS [montant_paye], 
+[View_Facturation].[montant_restant] AS [montant_restant], 
+[View_Facturation].[montant_total] AS [montant_total], 
+[View_Facturation].[facturationID] AS [facturationID], 
+[View_Facturation].[commande_clientID] AS [commande_clientID], 
+[View_Facturation].[code] AS [code]
+FROM [dbo].[View_Facturation] AS [View_Facturation]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Fournisseur" EntityType="Self.View_Fournisseur" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Fournisseur].[adresse] AS [adresse], 
-    [View_Fournisseur].[email] AS [email], 
-    [View_Fournisseur].[nom] AS [nom], 
-    [View_Fournisseur].[pays] AS [pays], 
-    [View_Fournisseur].[telephone] AS [telephone], 
-    [View_Fournisseur].[ville] AS [ville], 
-    [View_Fournisseur].[fournisseurID] AS [fournisseurID], 
-    [View_Fournisseur].[code] AS [code]
-    FROM [dbo].[View_Fournisseur] AS [View_Fournisseur]</DefiningQuery>
+[View_Fournisseur].[adresse] AS [adresse], 
+[View_Fournisseur].[email] AS [email], 
+[View_Fournisseur].[nom] AS [nom], 
+[View_Fournisseur].[pays] AS [pays], 
+[View_Fournisseur].[telephone] AS [telephone], 
+[View_Fournisseur].[ville] AS [ville], 
+[View_Fournisseur].[fournisseurID] AS [fournisseurID], 
+[View_Fournisseur].[code] AS [code]
+FROM [dbo].[View_Fournisseur] AS [View_Fournisseur]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_JoinBE_soutageTo" EntityType="Self.View_JoinBE_soutageTo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_JoinBE_soutageTo].[navireID] AS [navireID], 
-    [View_JoinBE_soutageTo].[bE_SoutageID] AS [bE_SoutageID]
-    FROM [dbo].[View_JoinBE_soutageTo] AS [View_JoinBE_soutageTo]</DefiningQuery>
+[View_JoinBE_soutageTo].[navireID] AS [navireID], 
+[View_JoinBE_soutageTo].[bE_SoutageID] AS [bE_SoutageID]
+FROM [dbo].[View_JoinBE_soutageTo] AS [View_JoinBE_soutageTo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_JoinBE_soutageToNavire" EntityType="Self.View_JoinBE_soutageToNavire" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_JoinBE_soutageToNavire].[navireID] AS [navireID], 
-    [View_JoinBE_soutageToNavire].[bE_SoutageID] AS [bE_SoutageID]
-    FROM [dbo].[View_JoinBE_soutageToNavire] AS [View_JoinBE_soutageToNavire]</DefiningQuery>
+[View_JoinBE_soutageToNavire].[navireID] AS [navireID], 
+[View_JoinBE_soutageToNavire].[bE_SoutageID] AS [bE_SoutageID]
+FROM [dbo].[View_JoinBE_soutageToNavire] AS [View_JoinBE_soutageToNavire]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_JoinDetteToProduit" EntityType="Self.View_JoinDetteToProduit" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_JoinDetteToProduit].[produitID] AS [produitID], 
-    [View_JoinDetteToProduit].[detteID] AS [detteID]
-    FROM [dbo].[View_JoinDetteToProduit] AS [View_JoinDetteToProduit]</DefiningQuery>
+[View_JoinDetteToProduit].[produitID] AS [produitID], 
+[View_JoinDetteToProduit].[detteID] AS [detteID]
+FROM [dbo].[View_JoinDetteToProduit] AS [View_JoinDetteToProduit]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_JoinProduitToCommande_client" EntityType="Self.View_JoinProduitToCommande_client" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_JoinProduitToCommande_client].[commande_clientID] AS [commande_clientID], 
-    [View_JoinProduitToCommande_client].[produitID] AS [produitID]
-    FROM [dbo].[View_JoinProduitToCommande_client] AS [View_JoinProduitToCommande_client]</DefiningQuery>
+[View_JoinProduitToCommande_client].[commande_clientID] AS [commande_clientID], 
+[View_JoinProduitToCommande_client].[produitID] AS [produitID]
+FROM [dbo].[View_JoinProduitToCommande_client] AS [View_JoinProduitToCommande_client]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_JoinTaxeToFacturation" EntityType="Self.View_JoinTaxeToFacturation" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_JoinTaxeToFacturation].[facturationID] AS [facturationID], 
-    [View_JoinTaxeToFacturation].[taxeID] AS [taxeID]
-    FROM [dbo].[View_JoinTaxeToFacturation] AS [View_JoinTaxeToFacturation]</DefiningQuery>
+[View_JoinTaxeToFacturation].[facturationID] AS [facturationID], 
+[View_JoinTaxeToFacturation].[taxeID] AS [taxeID]
+FROM [dbo].[View_JoinTaxeToFacturation] AS [View_JoinTaxeToFacturation]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Marketer" EntityType="Self.View_Marketer" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Marketer].[adresse] AS [adresse], 
-    [View_Marketer].[email] AS [email], 
-    [View_Marketer].[nom] AS [nom], 
-    [View_Marketer].[pays] AS [pays], 
-    [View_Marketer].[telephone] AS [telephone], 
-    [View_Marketer].[ville] AS [ville], 
-    [View_Marketer].[marketerID] AS [marketerID], 
-    [View_Marketer].[code] AS [code]
-    FROM [dbo].[View_Marketer] AS [View_Marketer]</DefiningQuery>
+[View_Marketer].[adresse] AS [adresse], 
+[View_Marketer].[email] AS [email], 
+[View_Marketer].[nom] AS [nom], 
+[View_Marketer].[pays] AS [pays], 
+[View_Marketer].[telephone] AS [telephone], 
+[View_Marketer].[ville] AS [ville], 
+[View_Marketer].[marketerID] AS [marketerID], 
+[View_Marketer].[code] AS [code]
+FROM [dbo].[View_Marketer] AS [View_Marketer]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Navire" EntityType="Self.View_Navire" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Navire].[capacite] AS [capacite], 
-    [View_Navire].[nom] AS [nom], 
-    [View_Navire].[navireID] AS [navireID], 
-    [View_Navire].[code] AS [code]
-    FROM [dbo].[View_Navire] AS [View_Navire]</DefiningQuery>
+[View_Navire].[capacite] AS [capacite], 
+[View_Navire].[nom] AS [nom], 
+[View_Navire].[navireID] AS [navireID], 
+[View_Navire].[code] AS [code]
+FROM [dbo].[View_Navire] AS [View_Navire]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Point_consommation" EntityType="Self.View_Point_consommation" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Point_consommation].[adresse] AS [adresse], 
-    [View_Point_consommation].[email] AS [email], 
-    [View_Point_consommation].[localisation] AS [localisation], 
-    [View_Point_consommation].[nom] AS [nom], 
-    [View_Point_consommation].[pays] AS [pays], 
-    [View_Point_consommation].[telephone] AS [telephone], 
-    [View_Point_consommation].[ville] AS [ville], 
-    [View_Point_consommation].[point_consommationID] AS [point_consommationID], 
-    [View_Point_consommation].[code] AS [code]
-    FROM [dbo].[View_Point_consommation] AS [View_Point_consommation]</DefiningQuery>
+[View_Point_consommation].[adresse] AS [adresse], 
+[View_Point_consommation].[email] AS [email], 
+[View_Point_consommation].[localisation] AS [localisation], 
+[View_Point_consommation].[nom] AS [nom], 
+[View_Point_consommation].[pays] AS [pays], 
+[View_Point_consommation].[telephone] AS [telephone], 
+[View_Point_consommation].[ville] AS [ville], 
+[View_Point_consommation].[point_consommationID] AS [point_consommationID], 
+[View_Point_consommation].[code] AS [code]
+FROM [dbo].[View_Point_consommation] AS [View_Point_consommation]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Pompe" EntityType="Self.View_Pompe" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Pompe].[libelle] AS [libelle], 
-    [View_Pompe].[pompeID] AS [pompeID], 
-    [View_Pompe].[tankerID] AS [tankerID], 
-    [View_Pompe].[code] AS [code]
-    FROM [dbo].[View_Pompe] AS [View_Pompe]</DefiningQuery>
+[View_Pompe].[libelle] AS [libelle], 
+[View_Pompe].[pompeID] AS [pompeID], 
+[View_Pompe].[tankerID] AS [tankerID], 
+[View_Pompe].[code] AS [code]
+FROM [dbo].[View_Pompe] AS [View_Pompe]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Pompiste" EntityType="Self.View_Pompiste" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Pompiste].[adresse] AS [adresse], 
-    [View_Pompiste].[email] AS [email], 
-    [View_Pompiste].[nom] AS [nom], 
-    [View_Pompiste].[prenom] AS [prenom], 
-    [View_Pompiste].[telephone] AS [telephone], 
-    [View_Pompiste].[pompisteID] AS [pompisteID], 
-    [View_Pompiste].[code] AS [code]
-    FROM [dbo].[View_Pompiste] AS [View_Pompiste]</DefiningQuery>
+[View_Pompiste].[adresse] AS [adresse], 
+[View_Pompiste].[email] AS [email], 
+[View_Pompiste].[nom] AS [nom], 
+[View_Pompiste].[prenom] AS [prenom], 
+[View_Pompiste].[telephone] AS [telephone], 
+[View_Pompiste].[pompisteID] AS [pompisteID], 
+[View_Pompiste].[code] AS [code]
+FROM [dbo].[View_Pompiste] AS [View_Pompiste]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Produit" EntityType="Self.View_Produit" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Produit].[designation] AS [designation], 
-    [View_Produit].[libelle] AS [libelle], 
-    [View_Produit].[prix] AS [prix], 
-    [View_Produit].[unite_mesure] AS [unite_mesure], 
-    [View_Produit].[produitID] AS [produitID], 
-    [View_Produit].[code] AS [code]
-    FROM [dbo].[View_Produit] AS [View_Produit]</DefiningQuery>
+[View_Produit].[designation] AS [designation], 
+[View_Produit].[libelle] AS [libelle], 
+[View_Produit].[prix] AS [prix], 
+[View_Produit].[unite_mesure] AS [unite_mesure], 
+[View_Produit].[produitID] AS [produitID], 
+[View_Produit].[code] AS [code]
+FROM [dbo].[View_Produit] AS [View_Produit]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Reception" EntityType="Self.View_Reception" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Reception].[date_reception] AS [date_reception], 
-    [View_Reception].[quantite] AS [quantite], 
-    [View_Reception].[receptionID] AS [receptionID], 
-    [View_Reception].[commande_clientID] AS [commande_clientID], 
-    [View_Reception].[code] AS [code]
-    FROM [dbo].[View_Reception] AS [View_Reception]</DefiningQuery>
+[View_Reception].[date_reception] AS [date_reception], 
+[View_Reception].[quantite] AS [quantite], 
+[View_Reception].[receptionID] AS [receptionID], 
+[View_Reception].[commande_clientID] AS [commande_clientID], 
+[View_Reception].[code] AS [code]
+FROM [dbo].[View_Reception] AS [View_Reception]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Reglement_dette" EntityType="Self.View_Reglement_dette" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Reglement_dette].[date_paiement] AS [date_paiement], 
-    [View_Reglement_dette].[libelle] AS [libelle], 
-    [View_Reglement_dette].[montant] AS [montant], 
-    [View_Reglement_dette].[reglement_detteID] AS [reglement_detteID], 
-    [View_Reglement_dette].[detteID] AS [detteID], 
-    [View_Reglement_dette].[code] AS [code]
-    FROM [dbo].[View_Reglement_dette] AS [View_Reglement_dette]</DefiningQuery>
+[View_Reglement_dette].[date_paiement] AS [date_paiement], 
+[View_Reglement_dette].[libelle] AS [libelle], 
+[View_Reglement_dette].[montant] AS [montant], 
+[View_Reglement_dette].[reglement_detteID] AS [reglement_detteID], 
+[View_Reglement_dette].[detteID] AS [detteID], 
+[View_Reglement_dette].[code] AS [code]
+FROM [dbo].[View_Reglement_dette] AS [View_Reglement_dette]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Stock" EntityType="Self.View_Stock" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Stock].[quantite] AS [quantite], 
-    [View_Stock].[stockID] AS [stockID], 
-    [View_Stock].[depotID] AS [depotID], 
-    [View_Stock].[marketerID] AS [marketerID], 
-    [View_Stock].[produitID] AS [produitID], 
-    [View_Stock].[code] AS [code]
-    FROM [dbo].[View_Stock] AS [View_Stock]</DefiningQuery>
+[View_Stock].[quantite] AS [quantite], 
+[View_Stock].[stockID] AS [stockID], 
+[View_Stock].[depotID] AS [depotID], 
+[View_Stock].[marketerID] AS [marketerID], 
+[View_Stock].[produitID] AS [produitID], 
+[View_Stock].[code] AS [code]
+FROM [dbo].[View_Stock] AS [View_Stock]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Tanker" EntityType="Self.View_Tanker" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Tanker].[quantite] AS [quantite], 
-    [View_Tanker].[tankerID] AS [tankerID], 
-    [View_Tanker].[produitID] AS [produitID], 
-    [View_Tanker].[code] AS [code]
-    FROM [dbo].[View_Tanker] AS [View_Tanker]</DefiningQuery>
+[View_Tanker].[quantite] AS [quantite], 
+[View_Tanker].[tankerID] AS [tankerID], 
+[View_Tanker].[produitID] AS [produitID], 
+[View_Tanker].[code] AS [code]
+FROM [dbo].[View_Tanker] AS [View_Tanker]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Taxe" EntityType="Self.View_Taxe" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Taxe].[libelle] AS [libelle], 
-    [View_Taxe].[taux] AS [taux], 
-    [View_Taxe].[taxeID] AS [taxeID], 
-    [View_Taxe].[code] AS [code]
-    FROM [dbo].[View_Taxe] AS [View_Taxe]</DefiningQuery>
+[View_Taxe].[libelle] AS [libelle], 
+[View_Taxe].[taux] AS [taux], 
+[View_Taxe].[taxeID] AS [taxeID], 
+[View_Taxe].[code] AS [code]
+FROM [dbo].[View_Taxe] AS [View_Taxe]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Tranche" EntityType="Self.View_Tranche" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Tranche].[date_paiement] AS [date_paiement], 
-    [View_Tranche].[libelle] AS [libelle], 
-    [View_Tranche].[montant] AS [montant], 
-    [View_Tranche].[trancheID] AS [trancheID], 
-    [View_Tranche].[facturationID] AS [facturationID], 
-    [View_Tranche].[code] AS [code]
-    FROM [dbo].[View_Tranche] AS [View_Tranche]</DefiningQuery>
+[View_Tranche].[date_paiement] AS [date_paiement], 
+[View_Tranche].[libelle] AS [libelle], 
+[View_Tranche].[montant] AS [montant], 
+[View_Tranche].[trancheID] AS [trancheID], 
+[View_Tranche].[facturationID] AS [facturationID], 
+[View_Tranche].[code] AS [code]
+FROM [dbo].[View_Tranche] AS [View_Tranche]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Transaction_effectuee" EntityType="Self.View_Transaction_effectuee" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Transaction_effectuee].[date_transaction] AS [date_transaction], 
-    [View_Transaction_effectuee].[libelle] AS [libelle], 
-    [View_Transaction_effectuee].[montant_transaction] AS [montant_transaction], 
-    [View_Transaction_effectuee].[transaction_effectueeID] AS [transaction_effectueeID], 
-    [View_Transaction_effectuee].[compte_marketerID] AS [compte_marketerID], 
-    [View_Transaction_effectuee].[code] AS [code]
-    FROM [dbo].[View_Transaction_effectuee] AS [View_Transaction_effectuee]</DefiningQuery>
+[View_Transaction_effectuee].[date_transaction] AS [date_transaction], 
+[View_Transaction_effectuee].[libelle] AS [libelle], 
+[View_Transaction_effectuee].[montant_transaction] AS [montant_transaction], 
+[View_Transaction_effectuee].[transaction_effectueeID] AS [transaction_effectueeID], 
+[View_Transaction_effectuee].[compte_marketerID] AS [compte_marketerID], 
+[View_Transaction_effectuee].[code] AS [code]
+FROM [dbo].[View_Transaction_effectuee] AS [View_Transaction_effectuee]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Transporteur" EntityType="Self.View_Transporteur" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Transporteur].[email] AS [email], 
-    [View_Transporteur].[localisation] AS [localisation], 
-    [View_Transporteur].[nom] AS [nom], 
-    [View_Transporteur].[pays] AS [pays], 
-    [View_Transporteur].[telephone] AS [telephone], 
-    [View_Transporteur].[ville] AS [ville], 
-    [View_Transporteur].[transporteurID] AS [transporteurID], 
-    [View_Transporteur].[code] AS [code]
-    FROM [dbo].[View_Transporteur] AS [View_Transporteur]</DefiningQuery>
+[View_Transporteur].[email] AS [email], 
+[View_Transporteur].[localisation] AS [localisation], 
+[View_Transporteur].[nom] AS [nom], 
+[View_Transporteur].[pays] AS [pays], 
+[View_Transporteur].[telephone] AS [telephone], 
+[View_Transporteur].[ville] AS [ville], 
+[View_Transporteur].[transporteurID] AS [transporteurID], 
+[View_Transporteur].[code] AS [code]
+FROM [dbo].[View_Transporteur] AS [View_Transporteur]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Utilisateur" EntityType="Self.View_Utilisateur" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Utilisateur].[email] AS [email], 
-    [View_Utilisateur].[nom] AS [nom], 
-    [View_Utilisateur].[prenom] AS [prenom], 
-    [View_Utilisateur].[telephone] AS [telephone], 
-    [View_Utilisateur].[utilisateurID] AS [utilisateurID], 
-    [View_Utilisateur].[code] AS [code]
-    FROM [dbo].[View_Utilisateur] AS [View_Utilisateur]</DefiningQuery>
+[View_Utilisateur].[email] AS [email], 
+[View_Utilisateur].[nom] AS [nom], 
+[View_Utilisateur].[prenom] AS [prenom], 
+[View_Utilisateur].[telephone] AS [telephone], 
+[View_Utilisateur].[utilisateurID] AS [utilisateurID], 
+[View_Utilisateur].[code] AS [code]
+FROM [dbo].[View_Utilisateur] AS [View_Utilisateur]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Vente_carburant" EntityType="Self.View_Vente_carburant" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [View_Vente_carburant].[compteur_apres] AS [compteur_apres], 
-    [View_Vente_carburant].[compteur_avant] AS [compteur_avant], 
-    [View_Vente_carburant].[date_vente] AS [date_vente], 
-    [View_Vente_carburant].[quantite] AS [quantite], 
-    [View_Vente_carburant].[vente_carburantID] AS [vente_carburantID], 
-    [View_Vente_carburant].[pompeID] AS [pompeID], 
-    [View_Vente_carburant].[pompisteID] AS [pompisteID], 
-    [View_Vente_carburant].[code] AS [code]
-    FROM [dbo].[View_Vente_carburant] AS [View_Vente_carburant]</DefiningQuery>
+[View_Vente_carburant].[compteur_apres] AS [compteur_apres], 
+[View_Vente_carburant].[compteur_avant] AS [compteur_avant], 
+[View_Vente_carburant].[date_vente] AS [date_vente], 
+[View_Vente_carburant].[quantite] AS [quantite], 
+[View_Vente_carburant].[vente_carburantID] AS [vente_carburantID], 
+[View_Vente_carburant].[pompeID] AS [pompeID], 
+[View_Vente_carburant].[pompisteID] AS [pompisteID], 
+[View_Vente_carburant].[code] AS [code]
+FROM [dbo].[View_Vente_carburant] AS [View_Vente_carburant]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Agence_Marketer" Association="Self.FK_Agence_Marketer">
             <End Role="Marketer" EntitySet="Marketer" />
@@ -7068,7 +7068,7 @@ warning 6002: The table/view 'isoftTank.dbo.View_Vente_carburant' does not have 
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

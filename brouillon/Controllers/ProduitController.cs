@@ -7,12 +7,13 @@ using ClassLibrary;
 using ClassLibrary.DAO;
 using brouillon.Models;
 using System.Data;
+using ClassLibrary.DAO.IDAO;
 
 namespace brouillon.Controllers
 {
     public class ProduitController : Controller
     {
-        DAOProduit dao = new DAOProduit();
+        IDAOProduit dao = new DAOProduit();
 
         // GET: Produit
         public ActionResult Index()
