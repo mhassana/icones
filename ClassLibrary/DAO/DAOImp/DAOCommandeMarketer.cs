@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOTaxe
+   public class DAOCommandeMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOTaxe()
+        public DAOCommandeMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public Taxe ajouter(Taxe u)
+        public Commande_marketer ajouter(Commande_marketer u)
         {
-            db.Taxes.Add(u);
+            db.Commande_marketer.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public Taxe modifier(Taxe u)
+        public Commande_marketer modifier(Commande_marketer u)
         {
             //recherche de l'objet dans la bd
-            Taxe u2 = db.Taxes.First(x => x.codeTAXE == u.codeTAXE);
+            Commande_marketer u2 = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == u.codeCOMMANDE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.taux = u.taux;
+                u2.quantite = u.quantite;
+
                 //sauvegarde des nouvelles informations
 
                 db.SaveChanges();
@@ -41,58 +41,58 @@ namespace ClassLibrary.DAO
             }
             else
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                u.quantite = 0;
                 return u;
             }
         }
 
-        public Taxe rechercher(string code)
+        public Commande_marketer rechercher(string code)
         {
-            Taxe u = db.Taxes.First(x => x.codeTAXE == code);
+            Commande_marketer u = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
 
             else
             {
-                u.libelle = "Aucun enregistrement trouve.";
+                u.quantite = 0;
                 return u;
             }
         }
 
-        public Taxe supprimer(Taxe u)
+        public Commande_marketer supprimer(Commande_marketer u)
         {
-            Taxe u2 = rechercher(u.codeTAXE);
+            Commande_marketer u2 = rechercher(u.codeCOMMANDE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.Taxes.Remove(u2);
+                db.Commande_marketer.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
 
             else
             {
-                u2.libelle = "Aucun enregistrement trouve.";
+                u2.quantite = 0;
                 return u2;
             }
         }
 
-        public IEnumerable<Taxe> rechercherParMC(Func<Taxe, bool> predicate)
+        public IEnumerable<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate)
         {
-            var us = db.Taxes.Where(predicate);
+            var us = db.Commande_marketer.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<Taxe> rechercherTous()
+        public IEnumerable<Commande_marketer> rechercherTous()
         {
-            return db.Taxes.ToList();
+            return db.Commande_marketer.ToList();
 
         }
 
-        ~DAOTaxe()
+        ~DAOCommandeMarketer()
         {
             Dispose();
         }

@@ -6,34 +6,35 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOTransactionEffectuee
+   public class DAOTrancheMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOTransactionEffectuee()
+        public DAOTrancheMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public Transaction_effectuee ajouter(Transaction_effectuee u)
+        public TrancheMarketer ajouter(TrancheMarketer u)
         {
-            db.Transaction_effectuee.Add(u);
+            db.TrancheMarketers.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public Transaction_effectuee modifier(Transaction_effectuee u)
+        public TrancheMarketer modifier(TrancheMarketer u)
         {
             //recherche de l'objet dans la bd
-            Transaction_effectuee u2 = db.Transaction_effectuee.First(x => x.codeTRANSACTION_EFFECTUEE == u.codeTRANSACTION_EFFECTUEE);
+            TrancheMarketer u2 = db.TrancheMarketers.First(x => x.codeTRANCHE == u.codeTRANCHE);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
                 u2.libelle = u.libelle;
-                u2.montant_transaction = u.montant_transaction;
+                u2.montant = u.montant;
+                u2.date_paiement = u.date_paiement;
 
                 //sauvegarde des nouvelles informations
 
@@ -47,9 +48,9 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public Transaction_effectuee rechercher(string code)
+        public TrancheMarketer rechercher(string code)
         {
-            Transaction_effectuee u = db.Transaction_effectuee.First(x => x.codeTRANSACTION_EFFECTUEE == code);
+            TrancheMarketer u = db.TrancheMarketers.First(x => x.codeTRANCHE == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
@@ -61,14 +62,14 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public Transaction_effectuee supprimer(Transaction_effectuee u)
+        public TrancheMarketer supprimer(TrancheMarketer u)
         {
-            Transaction_effectuee u2 = rechercher(u.codeTRANSACTION_EFFECTUEE);
+            TrancheMarketer u2 = rechercher(u.codeTRANCHE);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.Transaction_effectuee.Remove(u2);
+                db.TrancheMarketers.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
@@ -80,20 +81,20 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
+        public IEnumerable<TrancheMarketer> rechercherParMC(Func<TrancheMarketer, bool> predicate)
         {
-            var us = db.Marketers.Where(predicate);
+            var us = db.TrancheMarketers.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<Transaction_effectuee> rechercherTous()
+        public IEnumerable<TrancheMarketer> rechercherTous()
         {
-            return db.Transaction_effectuee.ToList();
+            return db.TrancheMarketers.ToList();
 
         }
 
-        ~DAOTransactionEffectuee()
+        ~DAOTrancheMarketer()
         {
             Dispose();
         }

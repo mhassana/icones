@@ -6,34 +6,33 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOBeBacBac
+   public class DAOCompteMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOBeBacBac()
+        public DAOCompteMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public BE_bac_bac ajouter(BE_bac_bac u)
+        public Compte_marketer ajouter(Compte_marketer u)
         {
-            db.BE_bac_bac.Add(u);
+            db.Compte_marketer.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public BE_bac_bac modifier(BE_bac_bac u)
+        public Compte_marketer modifier(Compte_marketer u)
         {
             //recherche de l'objet dans la bd
-            BE_bac_bac u2 = db.BE_bac_bac.First(x => x.codeBE_BAC_BAC == u.codeBE_BAC_BAC);
+            Compte_marketer u2 = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == u.codeCOMPTE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.quantite = u.quantite;
+                u2.montant_net = u.montant_net;
 
                 //sauvegarde des nouvelles informations
 
@@ -42,58 +41,58 @@ namespace ClassLibrary.DAO
             }
             else
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                u.montant_net = 0;
                 return u;
             }
         }
 
-        public BE_bac_bac rechercher(string code)
+        public Compte_marketer rechercher(string code)
         {
-            BE_bac_bac u = db.BE_bac_bac.First(x => x.codeBE_BAC_BAC == code);
+            Compte_marketer u = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
 
             else
             {
-                u.libelle = "Aucun enregistrement trouve.";
+                u.montant_net = 0;
                 return u;
             }
         }
 
-        public BE_bac_bac supprimer(BE_bac_bac u)
+        public Compte_marketer supprimer(Compte_marketer u)
         {
-            BE_bac_bac u2 = rechercher(u.codeBE_BAC_BAC);
+            Compte_marketer u2 = rechercher(u.codeCOMPTE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.BE_bac_bac.Remove(u2);
+                db.Compte_marketer.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
 
             else
             {
-                u2.libelle = "Aucun enregistrement trouve.";
+                u2.montant_net = 0;
                 return u2;
             }
         }
 
-        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
+        public IEnumerable<Compte_marketer> rechercherParMC(Func<Compte_marketer, bool> predicate)
         {
-            var us = db.Marketers.Where(predicate);
+            var us = db.Compte_marketer.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<BE_bac_bac> rechercherTous()
+        public IEnumerable<Compte_marketer> rechercherTous()
         {
-            return db.BE_bac_bac.ToList();
+            return db.Compte_marketer.ToList();
 
         }
 
-        ~DAOBeBacBac()
+        ~DAOCompteMarketer()
         {
             Dispose();
         }

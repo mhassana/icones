@@ -6,35 +6,38 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOTrancheMarketer
+   public class DAOFournisseur
     {
         private isoftTankEntities db = null;
 
-        public DAOTrancheMarketer()
+        public DAOFournisseur()
         {
             db = new isoftTankEntities();
         }
 
-        public TrancheMarketer ajouter(TrancheMarketer u)
+        public Fournisseur ajouter(Fournisseur u)
         {
-            db.TrancheMarketers.Add(u);
+            db.Fournisseurs.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public TrancheMarketer modifier(TrancheMarketer u)
+        public Fournisseur modifier(Fournisseur u)
         {
             //recherche de l'objet dans la bd
-            TrancheMarketer u2 = db.TrancheMarketers.First(x => x.codeTRANCHE == u.codeTRANCHE);
+            Fournisseur u2 = db.Fournisseurs.First(x => x.codeFOURNISSEUR == u.codeFOURNISSEUR);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.montant = u.montant;
-                u2.date_paiement = u.date_paiement;
+                u2.adresse = u.adresse;
+                u2.email = u.email;
+                u2.nom = u.nom;
+                u2.pays = u.pays;
+                u2.telephone = u.telephone;
+                u2.ville = u.ville;
 
                 //sauvegarde des nouvelles informations
 
@@ -43,58 +46,58 @@ namespace ClassLibrary.DAO
             }
             else
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                u.nom = "Cet enregistrement n'existe pas dans la base de donnees.";
                 return u;
             }
         }
 
-        public TrancheMarketer rechercher(string code)
+        public Fournisseur rechercher(string code)
         {
-            TrancheMarketer u = db.TrancheMarketers.First(x => x.codeTRANCHE == code);
+            Fournisseur u = db.Fournisseurs.First(x => x.codeFOURNISSEUR == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
 
             else
             {
-                u.libelle = "Aucun enregistrement trouve.";
+                u.nom = "Aucun enregistrement trouve.";
                 return u;
             }
         }
 
-        public TrancheMarketer supprimer(TrancheMarketer u)
+        public Fournisseur supprimer(Fournisseur u)
         {
-            TrancheMarketer u2 = rechercher(u.codeTRANCHE);
+            Fournisseur u2 = rechercher(u.codeFOURNISSEUR);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.TrancheMarketers.Remove(u2);
+                db.Fournisseurs.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
 
             else
             {
-                u2.libelle = "Aucun enregistrement trouve.";
+                u2.nom = "Aucun enregistrement trouve.";
                 return u2;
             }
         }
 
-        public IEnumerable<TrancheMarketer> rechercherParMC(Func<TrancheMarketer, bool> predicate)
+        public IEnumerable<Fournisseur> rechercherParMC(Func<Fournisseur, bool> predicate)
         {
-            var us = db.TrancheMarketers.Where(predicate);
+            var us = db.Fournisseurs.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<TrancheMarketer> rechercherTous()
+        public IEnumerable<Fournisseur> rechercherTous()
         {
-            return db.TrancheMarketers.ToList();
+            return db.Fournisseurs.ToList();
 
         }
 
-        ~DAOTrancheMarketer()
+        ~DAOFournisseur()
         {
             Dispose();
         }

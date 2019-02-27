@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOFacturationMarketer
+   public class DAOFacturationMarketer
     {
         private isoftTankEntities db = null;
 
