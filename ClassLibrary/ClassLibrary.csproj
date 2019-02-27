@@ -86,7 +86,6 @@
     <Compile Include="DAO\DAODepot.cs" />
     <Compile Include="DAO\DAOFacturationMarketer.cs" />
     <Compile Include="DAO\DAOFournisseur.cs" />
-    <Compile Include="DAO\DAOJoinTaxeToFacturation.cs" />
     <Compile Include="DAO\DAOMarketer.cs" />
     <Compile Include="DAO\DAOProduit.cs" />
     <Compile Include="DAO\DAOStock.cs" />
