@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
+
 
 namespace ClassLibrary.DAO
 {
-   public class DAOCommandeMarketer
+   public class DAOCommandeMarketer : IDAOCommandeMarketer
     {
         private isoftTankEntities db = null;
 
