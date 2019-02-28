@@ -180,10 +180,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BeBacBacModel.cs" />
+    <Compile Include="Models\commandeMarketerModel.cs" />
+    <Compile Include="Models\compteMarketerModel.cs" />
+    <Compile Include="Models\depotModel.cs" />
+    <Compile Include="Models\facturationMarketerModel.cs" />
+    <Compile Include="Models\fournisseurModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarketerModel.cs" />
     <Compile Include="Models\ProduitModel.cs" />
+    <Compile Include="Models\stockModel.cs" />
+    <Compile Include="Models\taxeModel.cs" />
+    <Compile Include="Models\trancheMarketerModel.cs" />
+    <Compile Include="Models\transactionEffectueeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

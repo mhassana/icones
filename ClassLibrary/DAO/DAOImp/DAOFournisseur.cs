@@ -4,29 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace ClassLibrary.DAO
 {
-    public class DAOMarketer
+   public class DAOFournisseur
     {
         private isoftTankEntities db = null;
 
-        public DAOMarketer()
+        public DAOFournisseur()
         {
             db = new isoftTankEntities();
         }
 
-        public Marketer ajouter(Marketer u)
+        public Fournisseur ajouter(Fournisseur u)
         {
-            db.Marketers.Add(u);
+            db.Fournisseurs.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public Marketer modifier(Marketer u)
+        public Fournisseur modifier(Fournisseur u)
         {
             //recherche de l'objet dans la bd
-            Marketer u2 = db.Marketers.First(x => x.codeMARKETER == u.codeMARKETER);
+            Fournisseur u2 = db.Fournisseurs.First(x => x.codeFOURNISSEUR == u.codeFOURNISSEUR);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
@@ -51,9 +51,9 @@ namespace ClassLibrary
             }
         }
 
-        public Marketer rechercher(string code)
+        public Fournisseur rechercher(string code)
         {
-            Marketer u = db.Marketers.First(x => x.codeMARKETER == code);
+            Fournisseur u = db.Fournisseurs.First(x => x.codeFOURNISSEUR == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
@@ -65,14 +65,14 @@ namespace ClassLibrary
             }
         }
 
-        public Marketer supprimer(Marketer u)
+        public Fournisseur supprimer(Fournisseur u)
         {
-            Marketer u2 = rechercher(u.codeMARKETER);
+            Fournisseur u2 = rechercher(u.codeFOURNISSEUR);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.Marketers.Remove(u2);
+                db.Fournisseurs.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
@@ -84,32 +84,20 @@ namespace ClassLibrary
             }
         }
 
-        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
+        public IEnumerable<Fournisseur> rechercherParMC(Func<Fournisseur, bool> predicate)
         {
-            var us = db.Marketers.Where(predicate);
+            var us = db.Fournisseurs.Where(predicate);
 
             return us.ToList();
         }
 
-
-        public Marketer rechercherUnique(Marketer m)
+        public IEnumerable<Fournisseur> rechercherTous()
         {
-            Marketer u = db.Marketers.First(x => x.nom == m.nom && x.pays == m.pays && x.ville == m.ville);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            return null;
-            
-        }
-
-        public IEnumerable<Marketer> rechercherTous()
-        {
-            return db.Marketers.ToList();
+            return db.Fournisseurs.ToList();
 
         }
 
-        ~DAOMarketer()
+        ~DAOFournisseur()
         {
             Dispose();
         }

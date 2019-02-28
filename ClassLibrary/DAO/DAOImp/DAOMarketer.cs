@@ -3,37 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
-namespace ClassLibrary.DAO
+namespace ClassLibrary
 {
-    class DAOBeBacBac
+    public class DAOMarketer : IDAOMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOBeBacBac()
+        public DAOMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public BE_bac_bac ajouter(BE_bac_bac u)
+        public Marketer ajouter(Marketer u)
         {
-            db.BE_bac_bac.Add(u);
+            db.Marketers.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public BE_bac_bac modifier(BE_bac_bac u)
+        public Marketer modifier(Marketer u)
         {
             //recherche de l'objet dans la bd
-            BE_bac_bac u2 = db.BE_bac_bac.First(x => x.codeBE_BAC_BAC == u.codeBE_BAC_BAC);
+            Marketer u2 = db.Marketers.First(x => x.codeMARKETER == u.codeMARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.quantite = u.quantite;
+                u2.adresse = u.adresse;
+                u2.email = u.email;
+                u2.nom = u.nom;
+                u2.pays = u.pays;
+                u2.telephone = u.telephone;
+                u2.ville = u.ville;
 
                 //sauvegarde des nouvelles informations
 
@@ -42,40 +47,40 @@ namespace ClassLibrary.DAO
             }
             else
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                u.nom = "Cet enregistrement n'existe pas dans la base de donnees.";
                 return u;
             }
         }
 
-        public BE_bac_bac rechercher(string code)
+        public Marketer rechercher(string code)
         {
-            BE_bac_bac u = db.BE_bac_bac.First(x => x.codeBE_BAC_BAC == code);
+            Marketer u = db.Marketers.First(x => x.codeMARKETER == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
 
             else
             {
-                u.libelle = "Aucun enregistrement trouve.";
+                u.nom = "Aucun enregistrement trouve.";
                 return u;
             }
         }
 
-        public BE_bac_bac supprimer(BE_bac_bac u)
+        public Marketer supprimer(Marketer u)
         {
-            BE_bac_bac u2 = rechercher(u.codeBE_BAC_BAC);
+            Marketer u2 = rechercher(u.codeMARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.BE_bac_bac.Remove(u2);
+                db.Marketers.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
 
             else
             {
-                u2.libelle = "Aucun enregistrement trouve.";
+                u2.nom = "Aucun enregistrement trouve.";
                 return u2;
             }
         }
@@ -87,13 +92,25 @@ namespace ClassLibrary.DAO
             return us.ToList();
         }
 
-        public IEnumerable<BE_bac_bac> rechercherTous()
+
+        public Marketer rechercherUnique(Marketer m)
         {
-            return db.BE_bac_bac.ToList();
+            Marketer u = db.Marketers.First(x => x.nom == m.nom && x.pays == m.pays && x.ville == m.ville);
+
+            //verification de l'existence de l'objet dans la bd
+            if (u != null) return u;
+
+            return null;
+            
+        }
+
+        public IEnumerable<Marketer> rechercherTous()
+        {
+            return db.Marketers.ToList();
 
         }
 
-        ~DAOBeBacBac()
+        ~DAOMarketer()
         {
             Dispose();
         }

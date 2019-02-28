@@ -3,37 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
 namespace ClassLibrary.DAO
 {
-    class DAOTransactionEffectuee
+   public class DAOFacturationMarketer : IDAOFacturationMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOTransactionEffectuee()
+        public DAOFacturationMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public Transaction_effectuee ajouter(Transaction_effectuee u)
+        public FacturationMarketer ajouter(FacturationMarketer u)
         {
-            db.Transaction_effectuee.Add(u);
+            db.FacturationMarketers.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public Transaction_effectuee modifier(Transaction_effectuee u)
+        public FacturationMarketer modifier(FacturationMarketer u)
         {
             //recherche de l'objet dans la bd
-            Transaction_effectuee u2 = db.Transaction_effectuee.First(x => x.codeTRANSACTION_EFFECTUEE == u.codeTRANSACTION_EFFECTUEE);
+            FacturationMarketer u2 = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == u.codeFACTURATION_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
                 u2.libelle = u.libelle;
-                u2.montant_transaction = u.montant_transaction;
+                u2.libelle = u.libelle;
+                u2.montant_restant = u.montant_restant;
+                u2.montant_total = u.montant_total;
 
                 //sauvegarde des nouvelles informations
 
@@ -47,9 +50,9 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public Transaction_effectuee rechercher(string code)
+        public FacturationMarketer rechercher(string code)
         {
-            Transaction_effectuee u = db.Transaction_effectuee.First(x => x.codeTRANSACTION_EFFECTUEE == code);
+            FacturationMarketer u = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
@@ -61,14 +64,14 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public Transaction_effectuee supprimer(Transaction_effectuee u)
+        public FacturationMarketer supprimer(FacturationMarketer u)
         {
-            Transaction_effectuee u2 = rechercher(u.codeTRANSACTION_EFFECTUEE);
+            FacturationMarketer u2 = rechercher(u.codeFACTURATION_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.Transaction_effectuee.Remove(u2);
+                db.FacturationMarketers.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
@@ -80,20 +83,20 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
+        public IEnumerable<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate)
         {
-            var us = db.Marketers.Where(predicate);
+            var us = db.FacturationMarketers.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<Transaction_effectuee> rechercherTous()
+        public IEnumerable<FacturationMarketer> rechercherTous()
         {
-            return db.Transaction_effectuee.ToList();
+            return db.FacturationMarketers.ToList();
 
         }
 
-        ~DAOTransactionEffectuee()
+        ~DAOFacturationMarketer()
         {
             Dispose();
         }

@@ -3,38 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
 namespace ClassLibrary.DAO
 {
-    class DAOTrancheMarketer
+   public class DAOStock : IDAOStock
     {
         private isoftTankEntities db = null;
 
-        public DAOTrancheMarketer()
+        public DAOStock()
         {
             db = new isoftTankEntities();
         }
 
-        public TrancheMarketer ajouter(TrancheMarketer u)
+        public Stock ajouter(Stock u)
         {
-            db.TrancheMarketers.Add(u);
+            db.Stocks.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public TrancheMarketer modifier(TrancheMarketer u)
+        public Stock modifier(Stock u)
         {
             //recherche de l'objet dans la bd
-            TrancheMarketer u2 = db.TrancheMarketers.First(x => x.codeTRANCHE == u.codeTRANCHE);
+            Stock u2 = db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
                 u2.libelle = u.libelle;
-                u2.montant = u.montant;
-                u2.date_paiement = u.date_paiement;
+                u2.quantite = u.quantite;
 
                 //sauvegarde des nouvelles informations
 
@@ -48,9 +48,9 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public TrancheMarketer rechercher(string code)
+        public Stock rechercher(string code)
         {
-            TrancheMarketer u = db.TrancheMarketers.First(x => x.codeTRANCHE == code);
+            Stock u = db.Stocks.First(x => x.codeSTOCK == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
@@ -62,14 +62,14 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public TrancheMarketer supprimer(TrancheMarketer u)
+        public Stock supprimer(Stock u)
         {
-            TrancheMarketer u2 = rechercher(u.codeTRANCHE);
+            Stock u2 = rechercher(u.codeSTOCK);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.TrancheMarketers.Remove(u2);
+                db.Stocks.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
@@ -81,20 +81,20 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public IEnumerable<TrancheMarketer> rechercherParMC(Func<TrancheMarketer, bool> predicate)
+        public IEnumerable<Stock> rechercherParMC(Func<Stock, bool> predicate)
         {
-            var us = db.TrancheMarketers.Where(predicate);
+            var us = db.Stocks.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<TrancheMarketer> rechercherTous()
+        public IEnumerable<Stock> rechercherTous()
         {
-            return db.TrancheMarketers.ToList();
+            return db.Stocks.ToList();
 
         }
 
-        ~DAOTrancheMarketer()
+        ~DAOStock()
         {
             Dispose();
         }

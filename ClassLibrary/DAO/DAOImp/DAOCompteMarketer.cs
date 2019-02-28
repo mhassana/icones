@@ -3,37 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
 namespace ClassLibrary.DAO
 {
-   public class DAOStock
+   public class DAOCompteMarketer : IDAOCompteMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOStock()
+        public DAOCompteMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public Stock ajouter(Stock u)
+        public Compte_marketer ajouter(Compte_marketer u)
         {
-            db.Stocks.Add(u);
+            db.Compte_marketer.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public Stock modifier(Stock u)
+        public Compte_marketer modifier(Compte_marketer u)
         {
             //recherche de l'objet dans la bd
-            Stock u2 = db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK);
+            Compte_marketer u2 = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == u.codeCOMPTE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.quantite = u.quantite;
+                u2.montant_net = u.montant_net;
 
                 //sauvegarde des nouvelles informations
 
@@ -42,58 +42,58 @@ namespace ClassLibrary.DAO
             }
             else
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                u.montant_net = 0;
                 return u;
             }
         }
 
-        public Stock rechercher(string code)
+        public Compte_marketer rechercher(string code)
         {
-            Stock u = db.Stocks.First(x => x.codeSTOCK == code);
+            Compte_marketer u = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
 
             else
             {
-                u.libelle = "Aucun enregistrement trouve.";
+                u.montant_net = 0;
                 return u;
             }
         }
 
-        public Stock supprimer(Stock u)
+        public Compte_marketer supprimer(Compte_marketer u)
         {
-            Stock u2 = rechercher(u.codeSTOCK);
+            Compte_marketer u2 = rechercher(u.codeCOMPTE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.Stocks.Remove(u2);
+                db.Compte_marketer.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
 
             else
             {
-                u2.libelle = "Aucun enregistrement trouve.";
+                u2.montant_net = 0;
                 return u2;
             }
         }
 
-        public IEnumerable<Stock> rechercherParMC(Func<Stock, bool> predicate)
+        public IEnumerable<Compte_marketer> rechercherParMC(Func<Compte_marketer, bool> predicate)
         {
-            var us = db.Stocks.Where(predicate);
+            var us = db.Compte_marketer.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<Stock> rechercherTous()
+        public IEnumerable<Compte_marketer> rechercherTous()
         {
-            return db.Stocks.ToList();
+            return db.Compte_marketer.ToList();
 
         }
 
-        ~DAOStock()
+        ~DAOCompteMarketer()
         {
             Dispose();
         }

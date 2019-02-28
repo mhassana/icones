@@ -31,16 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\ArbreG\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2015\Projects\reunion2\Data\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\ArbreG\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2015\Projects\MarketPlaces\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -83,19 +82,30 @@
     <Compile Include="Compte_utilisateur.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\DAOBeBacBac.cs" />
-    <Compile Include="DAO\DAOCommandeMarketer.cs" />
-    <Compile Include="DAO\DAOCompteMarketer.cs" />
-    <Compile Include="DAO\DAODepot.cs" />
-    <Compile Include="DAO\DAOFacturationMarketer.cs" />
-    <Compile Include="DAO\DAOFournisseur.cs" />
-    <Compile Include="DAO\DAOMarketer.cs" />
+    <Compile Include="DAO\DAOImp\DAOBeBacBac.cs" />
+    <Compile Include="DAO\DAOImp\DAOCommandeMarketer.cs" />
+    <Compile Include="DAO\DAOImp\DAOCompteMarketer.cs" />
+    <Compile Include="DAO\DAOImp\DAODepot.cs" />
+    <Compile Include="DAO\DAOImp\DAOFacturationMarketer.cs" />
+    <Compile Include="DAO\DAOImp\DAOFournisseur.cs" />
+    <Compile Include="DAO\DAOImp\DAOMarketer.cs" />
     <Compile Include="DAO\DAOImp\DAOProduit.cs" />
-    <Compile Include="DAO\DAOStock.cs" />
-    <Compile Include="DAO\DAOTaxe.cs" />
-    <Compile Include="DAO\DAOTrancheMarketer.cs" />
-    <Compile Include="DAO\DAOTransactionEffectuee.cs" />
+    <Compile Include="DAO\DAOImp\DAOStock.cs" />
+    <Compile Include="DAO\DAOImp\DAOTaxe.cs" />
+    <Compile Include="DAO\DAOImp\DAOTrancheMarketer.cs" />
+    <Compile Include="DAO\DAOImp\DAOTransactionEffectuee.cs" />
+    <Compile Include="DAO\IDAO\IDAOBeBacBac.cs" />
+    <Compile Include="DAO\IDAO\IDAOCommandeMarketer.cs" />
+    <Compile Include="DAO\IDAO\IDAOCompteMarketer.cs" />
+    <Compile Include="DAO\IDAO\IDAODepot.cs" />
+    <Compile Include="DAO\IDAO\IDAOFacturationMarketer.cs" />
+    <Compile Include="DAO\IDAO\IDAOFournisseur.cs" />
+    <Compile Include="DAO\IDAO\IDAOMarketer.cs" />
     <Compile Include="DAO\IDAO\IDAOProduit.cs" />
+    <Compile Include="DAO\IDAO\IDAOStock.cs" />
+    <Compile Include="DAO\IDAO\IDAOTaxe.cs" />
+    <Compile Include="DAO\IDAO\IDAOTrancheMarketer.cs" />
+    <Compile Include="DAO\IDAO\IDAOTransactionEffectuee.cs" />
     <Compile Include="Depot.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>

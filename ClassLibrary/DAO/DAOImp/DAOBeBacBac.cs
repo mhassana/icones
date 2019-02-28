@@ -3,39 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
 namespace ClassLibrary.DAO
 {
-    class DAOFacturationMarketer
+   public class DAOBeBacBac : IDAOBeBacBac
     {
         private isoftTankEntities db = null;
 
-        public DAOFacturationMarketer()
+        public DAOBeBacBac()
         {
             db = new isoftTankEntities();
         }
 
-        public FacturationMarketer ajouter(FacturationMarketer u)
+        public BE_bac_bac ajouter(BE_bac_bac u)
         {
-            db.FacturationMarketers.Add(u);
+            db.BE_bac_bac.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public FacturationMarketer modifier(FacturationMarketer u)
+        public BE_bac_bac modifier(BE_bac_bac u)
         {
             //recherche de l'objet dans la bd
-            FacturationMarketer u2 = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == u.codeFACTURATION_MARKETER);
+            BE_bac_bac u2 = db.BE_bac_bac.First(x => x.codeBE_BAC_BAC == u.codeBE_BAC_BAC);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
                 u2.libelle = u.libelle;
-                u2.libelle = u.libelle;
-                u2.montant_restant = u.montant_restant;
-                u2.montant_total = u.montant_total;
+                u2.quantite = u.quantite;
 
                 //sauvegarde des nouvelles informations
 
@@ -49,9 +48,9 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public FacturationMarketer rechercher(string code)
+        public BE_bac_bac rechercher(string code)
         {
-            FacturationMarketer u = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == code);
+            BE_bac_bac u = db.BE_bac_bac.First(x => x.codeBE_BAC_BAC == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
@@ -63,14 +62,14 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public FacturationMarketer supprimer(FacturationMarketer u)
+        public BE_bac_bac supprimer(BE_bac_bac u)
         {
-            FacturationMarketer u2 = rechercher(u.codeFACTURATION_MARKETER);
+            BE_bac_bac u2 = rechercher(u.codeBE_BAC_BAC);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.FacturationMarketers.Remove(u2);
+                db.BE_bac_bac.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
@@ -82,20 +81,20 @@ namespace ClassLibrary.DAO
             }
         }
 
-        public IEnumerable<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate)
+        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
         {
-            var us = db.FacturationMarketers.Where(predicate);
+            var us = db.Marketers.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<FacturationMarketer> rechercherTous()
+        public IEnumerable<BE_bac_bac> rechercherTous()
         {
-            return db.FacturationMarketers.ToList();
+            return db.BE_bac_bac.ToList();
 
         }
 
-        ~DAOFacturationMarketer()
+        ~DAOBeBacBac()
         {
             Dispose();
         }

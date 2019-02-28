@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO
 {
-    class DAOTaxe
+   public class DAOTaxe
     {
         private isoftTankEntities db = null;
 

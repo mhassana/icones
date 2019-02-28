@@ -1,38 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
+
 
 namespace ClassLibrary.DAO
 {
-    class DAOCompteMarketer
+   public class DAOCommandeMarketer : IDAOCommandeMarketer
     {
         private isoftTankEntities db = null;
 
-        public DAOCompteMarketer()
+        public DAOCommandeMarketer()
         {
             db = new isoftTankEntities();
         }
 
-        public Compte_marketer ajouter(Compte_marketer u)
+        public Commande_marketer ajouter(Commande_marketer u)
         {
-            db.Compte_marketer.Add(u);
+            db.Commande_marketer.Add(u);
             db.SaveChanges();
 
             return u;
         }
 
-        public Compte_marketer modifier(Compte_marketer u)
+        public Commande_marketer modifier(Commande_marketer u)
         {
             //recherche de l'objet dans la bd
-            Compte_marketer u2 = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == u.codeCOMPTE_MARKETER);
+            Commande_marketer u2 = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == u.codeCOMMANDE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
                 //mise a jour des modifications
-                u2.montant_net = u.montant_net;
+                u2.quantite = u.quantite;
 
                 //sauvegarde des nouvelles informations
 
@@ -41,58 +41,58 @@ namespace ClassLibrary.DAO
             }
             else
             {
-                u.montant_net = 0;
+                u.quantite = 0;
                 return u;
             }
         }
 
-        public Compte_marketer rechercher(string code)
+        public Commande_marketer rechercher(string code)
         {
-            Compte_marketer u = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == code);
+            Commande_marketer u = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == code);
 
             //verification de l'existence de l'objet dans la bd
             if (u != null) return u;
 
             else
             {
-                u.montant_net = 0;
+                u.quantite = 0;
                 return u;
             }
         }
 
-        public Compte_marketer supprimer(Compte_marketer u)
+        public Commande_marketer supprimer(Commande_marketer u)
         {
-            Compte_marketer u2 = rechercher(u.codeCOMPTE_MARKETER);
+            Commande_marketer u2 = rechercher(u.codeCOMMANDE_MARKETER);
 
             //verification de l'existence de l'objet dans la bd
             if (u2 != null)
             {
-                db.Compte_marketer.Remove(u2);
+                db.Commande_marketer.Remove(u2);
                 db.SaveChanges();
                 return u2;
             }
 
             else
             {
-                u2.montant_net = 0;
+                u2.quantite = 0;
                 return u2;
             }
         }
 
-        public IEnumerable<Compte_marketer> rechercherParMC(Func<Compte_marketer, bool> predicate)
+        public IEnumerable<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate)
         {
-            var us = db.Compte_marketer.Where(predicate);
+            var us = db.Commande_marketer.Where(predicate);
 
             return us.ToList();
         }
 
-        public IEnumerable<Compte_marketer> rechercherTous()
+        public IEnumerable<Commande_marketer> rechercherTous()
         {
-            return db.Compte_marketer.ToList();
+            return db.Commande_marketer.ToList();
 
         }
 
-        ~DAOCompteMarketer()
+        ~DAOCommandeMarketer()
         {
             Dispose();
         }
