@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37EBF07D-2AAB-4FDB-B932-106DE69B1C3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contrat</RootNamespace>
+    <AssemblyName>Contrat</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contrat\BC.cs" />
+    <Compile Include="Contrat\BE_bac_bac.cs" />
+    <Compile Include="Contrat\BE_export.cs" />
+    <Compile Include="Contrat\BE_livraison.cs" />
+    <Compile Include="Contrat\BE_soutage.cs" />
+    <Compile Include="Contrat\BE_Transfert.cs" />
+    <Compile Include="Contrat\Client.cs" />
+    <Compile Include="Contrat\Commande_client.cs" />
+    <Compile Include="Contrat\Commande_marketer.cs" />
+    <Compile Include="Contrat\Compte_marketer.cs" />
+    <Compile Include="Contrat\Compte_utilisateur.cs" />
+    <Compile Include="Contrat\Depot.cs" />
+    <Compile Include="Contrat\Dette.cs" />
+    <Compile Include="Contrat\FacturationClient.cs" />
+    <Compile Include="Contrat\FacturationMarketer.cs" />
+    <Compile Include="Contrat\Fournisseur.cs" />
+    <Compile Include="Contrat\Historique.cs" />
+    <Compile Include="Contrat\JoinBE_SoutageToNavire.cs" />
+    <Compile Include="Contrat\JoinDetteToProduit.cs" />
+    <Compile Include="Contrat\JoinProduitToCommande_client.cs" />
+    <Compile Include="Contrat\JoinTaxeToFacturation.cs" />
+    <Compile Include="Contrat\Marketer.cs" />
+    <Compile Include="Contrat\Navire.cs" />
+    <Compile Include="Contrat\Point_consommation.cs" />
+    <Compile Include="Contrat\Pompe.cs" />
+    <Compile Include="Contrat\Pompiste.cs" />
+    <Compile Include="Contrat\Produit.cs" />
+    <Compile Include="Contrat\Reception.cs" />
+    <Compile Include="Contrat\Reglement_dette.cs" />
+    <Compile Include="Contrat\Station.cs" />
+    <Compile Include="Contrat\Stock.cs" />
+    <Compile Include="Contrat\Tanker.cs" />
+    <Compile Include="Contrat\Taxe.cs" />
+    <Compile Include="Contrat\Tranche.cs" />
+    <Compile Include="Contrat\TrancheMarketer.cs" />
+    <Compile Include="Contrat\Transaction_effectuee.cs" />
+    <Compile Include="Contrat\Transporteur.cs" />
+    <Compile Include="Contrat\Utilisateur.cs" />
+    <Compile Include="Contrat\Vente_carburant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

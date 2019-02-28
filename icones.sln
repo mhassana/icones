@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icones", "icones\icones.csproj", "{9F3DE347-8E2A-4C4D-A1F3-11E4ED5763D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{3DD6777F-14E6-4F67-B733-233F3C372FFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brouillon", "brouillon\brouillon.csproj", "{1497B58B-7D47-46F8-A196-76AE8559729A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contrat", "Contrat\Contrat.csproj", "{37EBF07D-2AAB-4FDB-B932-106DE69B1C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{1497B58B-7D47-46F8-A196-76AE8559729A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1497B58B-7D47-46F8-A196-76AE8559729A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1497B58B-7D47-46F8-A196-76AE8559729A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37EBF07D-2AAB-4FDB-B932-106DE69B1C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37EBF07D-2AAB-4FDB-B932-106DE69B1C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37EBF07D-2AAB-4FDB-B932-106DE69B1C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37EBF07D-2AAB-4FDB-B932-106DE69B1C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
