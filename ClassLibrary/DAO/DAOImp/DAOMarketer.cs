@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary.DAO.IDAO;
 
 namespace ClassLibrary
 {
-    public class DAOMarketer
+    public class DAOMarketer : IDAOMarketer
     {
         private isoftTankEntities db = null;
 
