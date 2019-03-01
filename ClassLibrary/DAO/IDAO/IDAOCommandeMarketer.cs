@@ -18,7 +18,7 @@ namespace ClassLibrary.DAO.IDAO
 
         List<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate);
 
-        Commande_marketer rechercherUnique(Commande_marketer m);
+        //Commande_marketer rechercherUnique(Commande_marketer m);
 
         List<Commande_marketer> rechercherTous();
     }

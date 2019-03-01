@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,11 +9,17 @@ namespace brouillon.Models
 {
     public class commandeMarketerModel
     {
+        public commandeMarketerModel()
+        {
+            this.BE_bac_bac = new HashSet<BE_bac_bac>();
+            this.FacturationMarketers = new HashSet<FacturationMarketer>();
+        }
         public decimal quantite { get; set; }
         public string codeU { get; set; }
         public string codeFOURNISSEUR { get; set; }
         public string codeMARKETER { get; set; }
         public string codePRODUIT { get; set; }
+        [Key]
         public string codeCOMMANDE_MARKETER { get; set; }
         public System.DateTime date_c { get; set; }
 

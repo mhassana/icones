@@ -180,7 +180,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\bcModel.cs" />
     <Compile Include="Models\BeBacBacModel.cs" />
+    <Compile Include="Models\beExportModel.cs" />
+    <Compile Include="Models\BeTransfertModel.cs" />
+    <Compile Include="Models\commandeClientModel.cs" />
     <Compile Include="Models\commandeMarketerModel.cs" />
     <Compile Include="Models\compteMarketerModel.cs" />
     <Compile Include="Models\depotModel.cs" />
@@ -190,6 +194,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarketerModel.cs" />
     <Compile Include="Models\ProduitModel.cs" />
+    <Compile Include="Models\stationsModel.cs" />
     <Compile Include="Models\stockModel.cs" />
     <Compile Include="Models\taxeModel.cs" />
     <Compile Include="Models\trancheMarketerModel.cs" />
