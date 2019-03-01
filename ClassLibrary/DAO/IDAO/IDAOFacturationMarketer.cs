@@ -19,7 +19,7 @@ namespace ClassLibrary.DAO.IDAO
 
         List<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate);
 
-        FacturationMarketer rechercherUnique(FacturationMarketer m);
+        //FacturationMarketer rechercherUnique(FacturationMarketer m);
 
         List<FacturationMarketer> rechercherTous();
     }

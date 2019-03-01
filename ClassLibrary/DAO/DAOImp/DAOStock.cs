@@ -18,6 +18,8 @@ namespace ClassLibrary.DAO
 
         public Stock ajouter(Stock u)
         {
+            if (u == null)
+                u = new Stock();
             try
             {
                 db.creerStock(u.quantite, u.codeStation, u.codePRODUIT, u.libelle, u.codeU);
@@ -34,68 +36,132 @@ namespace ClassLibrary.DAO
         {
             if (u == null)
                 u = new Stock();
-            
-            //verification de l'existence de l'objet dans la bd
-            if (db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK) != null)
+            try
             {
+                //verification de l'existence de l'objet dans la bd
+                if (db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK) != null)
+                {
 
-                //sauvegarde des nouvelles informations
+                    //sauvegarde des nouvelles informations
 
-                db.modifierStock(u.codeSTOCK, u.quantite, u.codeStation, u.codePRODUIT, u.libelle, u.codeU);
+                    db.modifierStock(u.codeSTOCK, u.quantite, u.codeStation, u.codePRODUIT, u.libelle, u.codeU);
+                }
+
+                else
+                {
+                    u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-
-            else
+            catch (Exception ex)
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                u.libelle = ex.StackTrace;
+            }
+            return u;
+        }
+
+        public Stock supprimer(Stock u)
+        {
+            if (u == null)
+                u = new Stock();
+            try
+            {
+                if (db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK) != null)
+                {
+
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerStock(u.codeSTOCK, u.codeStation, u.codePRODUIT, u.codeU);
+                }
+
+                else
+                {
+                    u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+            return u;
+        }
+
+
+        public Stock rechercher(string code)
+        {
+            Stock u = new Stock();
+            try
+            {
+                u = db.Stocks.First(x => x.codeSTOCK == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.libelle = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
             }
 
             return u;
         }
 
-        public Stock rechercher(string code)
+
+        public List<Stock> rechercherParMC(Func<Stock, bool> predicate)
         {
-            Stock u = db.Stocks.First(x => x.codeSTOCK == code);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
+            List<Stock> us = new List<Stock>();
+            try
             {
-                u.libelle = "Aucun enregistrement trouve.";
-                return u;
+                us = db.Stocks.Where(predicate).ToList();
             }
-        }
-
-        public Stock supprimer(Stock u)
-        {
-            Stock u2 = rechercher(u.codeSTOCK);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            catch (Exception ex)
             {
-                db.Stocks.Remove(u2);
-                db.SaveChanges();
-                return u2;
+                Stock p = new Stock();
+                p.libelle = ex.StackTrace;
+                us.Add(p);
             }
 
-            else
+            return us;
+        }
+
+
+        public Stock rechercherUnique(Stock m)
+        {
+            Stock u = new Stock();
+
+            try
             {
-                u2.libelle = "Aucun enregistrement trouve.";
-                return u2;
+                u = db.Stocks.First(x => x.libelle == m.libelle);
+
             }
+
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+            
+            return u;
         }
 
-        public IEnumerable<Stock> rechercherParMC(Func<Stock, bool> predicate)
+        public List<Stock> rechercherTous()
         {
-            var us = db.Stocks.Where(predicate);
+            List<Stock> us = new List<Stock>();
+            try
+            {
+                us = db.Stocks.ToList();
+            }
+            catch (Exception ex)
+            {
+                Stock p = new Stock();
+                p.libelle = ex.StackTrace;
+                us.Add(p);
+            }
 
-            return us.ToList();
-        }
-
-        public IEnumerable<Stock> rechercherTous()
-        {
-            return db.Stocks.ToList();
-
+            return us;
         }
 
         ~DAOStock()

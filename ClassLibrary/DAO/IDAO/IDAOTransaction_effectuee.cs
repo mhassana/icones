@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.DAO.IDAO
 {
-    public interface IDAOTransactionEffectuee
+    public interface IDAOTransaction_effectuee
     {
 
         Transaction_effectuee ajouter(Transaction_effectuee u);

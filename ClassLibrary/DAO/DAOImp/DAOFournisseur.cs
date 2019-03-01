@@ -18,83 +18,154 @@ namespace ClassLibrary.DAO
 
         public Fournisseur ajouter(Fournisseur u)
         {
-            db.Fournisseurs.Add(u);
-            db.SaveChanges();
+            if (u == null)
+                u = new Fournisseur();
+            try
+            {
+                db.creerFournisseur(u.adresse, u.email, u.nom, u.pays, u.telephone, u.ville, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
 
             return u;
         }
 
         public Fournisseur modifier(Fournisseur u)
         {
-            //recherche de l'objet dans la bd
-            Fournisseur u2 = db.Fournisseurs.First(x => x.codeFOURNISSEUR == u.codeFOURNISSEUR);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Fournisseur();
+            try
             {
-                //mise a jour des modifications
-                u2.adresse = u.adresse;
-                u2.email = u.email;
-                u2.nom = u.nom;
-                u2.pays = u.pays;
-                u2.telephone = u.telephone;
-                u2.ville = u.ville;
+                //verification de l'existence de l'objet dans la bd
+                if (db.Fournisseurs.First(x => x.codeFOURNISSEUR == u.codeFOURNISSEUR) != null)
+                {
 
-                //sauvegarde des nouvelles informations
+                    //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
+                    db.modifierFournisseur(u.codeFOURNISSEUR, u.adresse, u.email, u.nom, u.pays, u.telephone, u.ville, u.codeU);
+                }
+
+                else
+                {
+                    u.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                u.nom = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
+                u.adresse = ex.StackTrace;
             }
-        }
 
-        public Fournisseur rechercher(string code)
-        {
-            Fournisseur u = db.Fournisseurs.First(x => x.codeFOURNISSEUR == code);
 
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.nom = "Aucun enregistrement trouve.";
-                return u;
-            }
+            return u;
         }
 
         public Fournisseur supprimer(Fournisseur u)
         {
-            Fournisseur u2 = rechercher(u.codeFOURNISSEUR);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Fournisseur();
+            try
             {
-                db.Fournisseurs.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
+                if (db.Fournisseurs.First(x => x.codeFOURNISSEUR == u.codeFOURNISSEUR) != null)
+                {
 
-            else
-            {
-                u2.nom = "Aucun enregistrement trouve.";
-                return u2;
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerFournisseur(u.codeFOURNISSEUR, u.codeU);
+                }
+
+                else
+                {
+                    u.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+            return u;
         }
 
-        public IEnumerable<Fournisseur> rechercherParMC(Func<Fournisseur, bool> predicate)
-        {
-            var us = db.Fournisseurs.Where(predicate);
 
-            return us.ToList();
+        public Fournisseur rechercher(string code)
+        {
+            Fournisseur u = new Fournisseur();
+            try
+            {
+                u = db.Fournisseurs.First(x => x.codeFOURNISSEUR == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.adresse = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+            return u;
         }
 
-        public IEnumerable<Fournisseur> rechercherTous()
+
+        public List<Fournisseur> rechercherParMC(Func<Fournisseur, bool> predicate)
         {
-            return db.Fournisseurs.ToList();
+            List<Fournisseur> us = new List<Fournisseur>();
+            try
+            {
+                us = db.Fournisseurs.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                Fournisseur p = new Fournisseur();
+                p.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
+        }
+
+
+        public Fournisseur rechercherUnique(Fournisseur m)
+        {
+            Fournisseur u = new Fournisseur();
+
+            try
+            {
+                u = db.Fournisseurs.First(x => x.adresse == m.adresse && x.email == m.email && x.nom == m.nom && x.pays == m.pays && x.telephone == m.telephone && x.ville == m.ville);
+
+            }
+
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+
+            return u;
+
+        }
+
+        public List<Fournisseur> rechercherTous()
+        {
+            List<Fournisseur> us = new List<Fournisseur>();
+            try
+            {
+                us = db.Fournisseurs.ToList();
+            }
+            catch (Exception ex)
+            {
+                Fournisseur p = new Fournisseur();
+                p.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
 
         }
 

@@ -18,81 +18,154 @@ namespace ClassLibrary.DAO
 
         public FacturationMarketer ajouter(FacturationMarketer u)
         {
-            db.FacturationMarketers.Add(u);
-            db.SaveChanges();
+            if (u == null)
+                u = new FacturationMarketer();
+            try
+            {
+                db.creerFacturationMarketer(u.libelle, u.montant_paye, u.montant_restant, u.montant_total, u.codeCOMMANDE_MARKETER, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
 
             return u;
         }
 
         public FacturationMarketer modifier(FacturationMarketer u)
         {
-            //recherche de l'objet dans la bd
-            FacturationMarketer u2 = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == u.codeFACTURATION_MARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new FacturationMarketer();
+            try
             {
-                //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.libelle = u.libelle;
-                u2.montant_restant = u.montant_restant;
-                u2.montant_total = u.montant_total;
+                //verification de l'existence de l'objet dans la bd
+                if (db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == u.codeFACTURATION_MARKETER) != null)
+                {
 
-                //sauvegarde des nouvelles informations
+                    //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
+                    db.modifierFacturationMarketer(u.codeFACTURATION_MARKETER, u.libelle, u.montant_paye, u.montant_restant, u.montant_total, u.codeCOMMANDE_MARKETER, u.codeU);
+                }
+
+                else
+                {
+                    u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
+                u.libelle = ex.StackTrace;
             }
-        }
 
-        public FacturationMarketer rechercher(string code)
-        {
-            FacturationMarketer u = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == code);
 
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.libelle = "Aucun enregistrement trouve.";
-                return u;
-            }
+            return u;
         }
 
         public FacturationMarketer supprimer(FacturationMarketer u)
         {
-            FacturationMarketer u2 = rechercher(u.codeFACTURATION_MARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new FacturationMarketer();
+            try
             {
-                db.FacturationMarketers.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
+                if (db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == u.codeFACTURATION_MARKETER) != null)
+                {
 
-            else
-            {
-                u2.libelle = "Aucun enregistrement trouve.";
-                return u2;
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerFacturationMarketer(u.codeFACTURATION_MARKETER, u.codeCOMMANDE_MARKETER, u.codeU);
+                }
+
+                else
+                {
+                    u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+            return u;
         }
 
-        public IEnumerable<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate)
-        {
-            var us = db.FacturationMarketers.Where(predicate);
 
-            return us.ToList();
+        public FacturationMarketer rechercher(string code)
+        {
+            FacturationMarketer u = new FacturationMarketer();
+            try
+            {
+                u = db.FacturationMarketers.First(x => x.codeFACTURATION_MARKETER == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.libelle = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+
+            return u;
         }
 
-        public IEnumerable<FacturationMarketer> rechercherTous()
+
+        public List<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate)
         {
-            return db.FacturationMarketers.ToList();
+            List<FacturationMarketer> us = new List<FacturationMarketer>();
+            try
+            {
+                us = db.FacturationMarketers.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                FacturationMarketer p = new FacturationMarketer();
+                p.libelle = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
+        }
+
+
+        //public FacturationMarketer rechercherUnique(FacturationMarketer m)
+        //{
+        //    FacturationMarketer u = new FacturationMarketer();
+
+        //    try
+        //    {
+        //        u = db.FacturationMarketers.First(x => x.adresse == m.adresse && x.email == m.email && x.localisation == m.localisation && x.nom == m.nom && x.pays == m.pays && x.telephone == m.telephone && x.ville == m.ville);
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        u.adresse = ex.StackTrace;
+        //    }
+
+
+        //    return u;
+
+        //}
+
+        public List<FacturationMarketer> rechercherTous()
+        {
+            List<FacturationMarketer> us = new List<FacturationMarketer>();
+            try
+            {
+                us = db.FacturationMarketers.ToList();
+            }
+            catch (Exception ex)
+            {
+                FacturationMarketer p = new FacturationMarketer();
+                p.libelle = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
 
         }
 

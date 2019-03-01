@@ -93,7 +93,7 @@
     <Compile Include="DAO\DAOImp\DAOStock.cs" />
     <Compile Include="DAO\DAOImp\DAOTaxe.cs" />
     <Compile Include="DAO\DAOImp\DAOTrancheMarketer.cs" />
-    <Compile Include="DAO\DAOImp\DAOTransactionEffectuee.cs" />
+    <Compile Include="DAO\DAOImp\DAOTransaction_effectuee.cs" />
     <Compile Include="DAO\IDAO\IDAOBeBacBac.cs" />
     <Compile Include="DAO\IDAO\IDAOCommandeMarketer.cs" />
     <Compile Include="DAO\IDAO\IDAOCompteMarketer.cs" />
@@ -105,7 +105,7 @@
     <Compile Include="DAO\IDAO\IDAOStock.cs" />
     <Compile Include="DAO\IDAO\IDAOTaxe.cs" />
     <Compile Include="DAO\IDAO\IDAOTrancheMarketer.cs" />
-    <Compile Include="DAO\IDAO\IDAOTransactionEffectuee.cs" />
+    <Compile Include="DAO\IDAO\IDAOTransaction_effectuee.cs" />
     <Compile Include="Depot.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>

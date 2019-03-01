@@ -18,95 +18,154 @@ namespace ClassLibrary
 
         public Marketer ajouter(Marketer u)
         {
-            db.Marketers.Add(u);
-            db.SaveChanges();
+            if (u == null)
+                u = new Marketer();
+            try
+            {
+                db.creerMarketer(u.adresse, u.email, u.nom, u.pays, u.telephone, u.ville, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
 
             return u;
         }
 
         public Marketer modifier(Marketer u)
         {
-            //recherche de l'objet dans la bd
-            Marketer u2 = db.Marketers.First(x => x.codeMARKETER == u.codeMARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Marketer();
+            try
             {
-                //mise a jour des modifications
-                u2.adresse = u.adresse;
-                u2.email = u.email;
-                u2.nom = u.nom;
-                u2.pays = u.pays;
-                u2.telephone = u.telephone;
-                u2.ville = u.ville;
+                //verification de l'existence de l'objet dans la bd
+                if (db.Marketers.First(x => x.codeMARKETER == u.codeMARKETER) != null)
+                {
 
-                //sauvegarde des nouvelles informations
+                    //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
+                    db.modifierMarketer(u.codeMARKETER, u.adresse, u.email, u.nom, u.pays, u.telephone, u.ville, u.codeU);
+                }
+
+                else
+                {
+                    u.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                u.nom = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
+                u.adresse = ex.StackTrace;
             }
-        }
 
-        public Marketer rechercher(string code)
-        {
-            Marketer u = db.Marketers.First(x => x.codeMARKETER == code);
 
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.nom = "Aucun enregistrement trouve.";
-                return u;
-            }
+            return u;
         }
 
         public Marketer supprimer(Marketer u)
         {
-            Marketer u2 = rechercher(u.codeMARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Marketer();
+            try
             {
-                db.Marketers.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
+                if (db.Marketers.First(x => x.codeMARKETER == u.codeMARKETER) != null)
+                {
 
-            else
-            {
-                u2.nom = "Aucun enregistrement trouve.";
-                return u2;
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerMarketer(u.codeMARKETER, u.codeU);
+                }
+
+                else
+                {
+                    u.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+            return u;
         }
 
-        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
-        {
-            var us = db.Marketers.Where(predicate);
 
-            return us.ToList();
+        public Marketer rechercher(string code)
+        {
+            Marketer u = new Marketer();
+            try
+            {
+                u = db.Marketers.First(x => x.codeMARKETER == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.adresse = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+            return u;
+        }
+
+
+        public List<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
+        {
+            List<Marketer> us = new List<Marketer>();
+            try
+            {
+                us = db.Marketers.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                Marketer p = new Marketer();
+                p.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
         }
 
 
         public Marketer rechercherUnique(Marketer m)
         {
-            Marketer u = db.Marketers.First(x => x.nom == m.nom && x.pays == m.pays && x.ville == m.ville);
+            Marketer u = new Marketer();
 
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
+            try
+            {
+                u = db.Marketers.First(x => x.adresse == m.adresse && x.email == m.email && x.nom == m.nom && x.pays == m.pays && x.telephone == m.telephone && x.ville == m.ville);
 
-            return null;
-            
+            }
+
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+
+            return u;
+
         }
 
-        public IEnumerable<Marketer> rechercherTous()
+        public List<Marketer> rechercherTous()
         {
-            return db.Marketers.ToList();
+            List<Marketer> us = new List<Marketer>();
+            try
+            {
+                us = db.Marketers.ToList();
+            }
+            catch (Exception ex)
+            {
+                Marketer p = new Marketer();
+                p.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
 
         }
 

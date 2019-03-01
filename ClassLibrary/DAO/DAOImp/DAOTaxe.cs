@@ -18,79 +18,150 @@ namespace ClassLibrary.DAO
 
         public Taxe ajouter(Taxe u)
         {
-            db.Taxes.Add(u);
-            db.SaveChanges();
+            if (u == null)
+                u = new Taxe();
+            try
+            {
+                db.creerTaxe(u.libelle, u.taux, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
 
             return u;
         }
 
         public Taxe modifier(Taxe u)
         {
-            //recherche de l'objet dans la bd
-            Taxe u2 = db.Taxes.First(x => x.codeTAXE == u.codeTAXE);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Taxe();
+            try
             {
-                //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.taux = u.taux;
-                //sauvegarde des nouvelles informations
+                //verification de l'existence de l'objet dans la bd
+                if (db.Taxes.First(x => x.codeTAXE == u.codeTAXE) != null)
+                {
 
-                db.SaveChanges();
-                return u;
+                    //sauvegarde des nouvelles informations
+
+                    db.modifierTaxe(u.codeTAXE, u.libelle, u.taux, u.codeU);
+                }
+
+                else
+                {
+                    u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
+                u.libelle = ex.StackTrace;
             }
-        }
-
-        public Taxe rechercher(string code)
-        {
-            Taxe u = db.Taxes.First(x => x.codeTAXE == code);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.libelle = "Aucun enregistrement trouve.";
-                return u;
-            }
+            return u;
         }
 
         public Taxe supprimer(Taxe u)
         {
-            Taxe u2 = rechercher(u.codeTAXE);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Taxe();
+            try
             {
-                db.Taxes.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
+                if (db.Taxes.First(x => x.codeTAXE == u.codeTAXE) != null)
+                {
 
-            else
-            {
-                u2.libelle = "Aucun enregistrement trouve.";
-                return u2;
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerTaxe(u.codeTAXE, u.codeU);
+                }
+
+                else
+                {
+                    u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+            return u;
         }
 
-        public IEnumerable<Taxe> rechercherParMC(Func<Taxe, bool> predicate)
-        {
-            var us = db.Taxes.Where(predicate);
 
-            return us.ToList();
+        public Taxe rechercher(string code)
+        {
+            Taxe u = new Taxe();
+            try
+            {
+                u = db.Taxes.First(x => x.codeTAXE == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.libelle = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+
+            return u;
         }
 
-        public IEnumerable<Taxe> rechercherTous()
-        {
-            return db.Taxes.ToList();
 
+        public List<Taxe> rechercherParMC(Func<Taxe, bool> predicate)
+        {
+            List<Taxe> us = new List<Taxe>();
+            try
+            {
+                us = db.Taxes.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                Taxe p = new Taxe();
+                p.libelle = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
+        }
+
+
+        public Taxe rechercherUnique(Taxe m)
+        {
+            Taxe u = new Taxe();
+
+            try
+            {
+                u = db.Taxes.First(x => x.libelle == m.libelle);
+
+            }
+
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
+
+            return u;
+        }
+
+        public List<Taxe> rechercherTous()
+        {
+            List<Taxe> us = new List<Taxe>();
+            try
+            {
+                us = db.Taxes.ToList();
+            }
+            catch (Exception ex)
+            {
+                Taxe p = new Taxe();
+                p.libelle = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
         }
 
         ~DAOTaxe()
