@@ -17,9 +17,11 @@ namespace ClassLibrary.DAO.IDAO
 
         TrancheMarketer supprimer(TrancheMarketer u);
 
-        IEnumerable<TrancheMarketer> rechercherParMC(Func<TrancheMarketer, bool> predicate);
+        List<TrancheMarketer> rechercherParMC(Func<TrancheMarketer, bool> predicate);
 
-        IEnumerable<TrancheMarketer> rechercherTous();
+        TrancheMarketer rechercherUnique(TrancheMarketer m);
+
+        List<TrancheMarketer> rechercherTous();
 
     }
 }

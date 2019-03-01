@@ -18,16 +18,15 @@ namespace ClassLibrary.DAO
 
         public Depot ajouter(Depot u)
         {
+            if (u == null)
+                u = new Depot();
             try
             {
-                if (db.creerDepot(u.adresse, u.email, u.localisation, u.nom, u.pays, u.telephone, u.ville, u.codeU) != 1)
-                    
-                    u.nom = "Erreur rencontree. Details >>> ";
-
+                db.creerDepot(u.adresse, u.email, u.localisation, u.nom, u.pays, u.telephone, u.ville, u.codeU);
             }
             catch (Exception ex)
             {
-                u.nom = ex.StackTrace;
+                u.adresse = ex.StackTrace;
             }
 
             return u;
@@ -35,80 +34,138 @@ namespace ClassLibrary.DAO
 
         public Depot modifier(Depot u)
         {
-            //recherche de l'objet dans la bd
-            Depot u2 = new Depot();
-
-            //verification de l'existence de l'objet dans la bd
-            if (u != null)
+            if (u == null)
+                u = new Depot();
+            try
             {
-                //mise a jour des modifications
-                u2.adresse = u.adresse;
-                u2.email = u.email;
-                u2.nom = u.nom;
-                u2.pays = u.pays;
-                u2.telephone = u.telephone;
-                u2.ville = u.ville;
-                u2.localisation = u.localisation;
-            }
-                //sauvegarde des nouvelles informations
+                //verification de l'existence de l'objet dans la bd
+                if (db.Depots.First(x => x.codeDEPOT == u.codeDEPOT) != null)
+                {
 
-                try
-                {
-                    if (db.modifierDepot(u2.codeDEPOT, u2.adresse, u2.email, u2.localisation, u2.nom, u2.pays, u2.telephone, u2.ville, u2.codeU) != 1)
-                        u2.nom = "Erreur rencontree. Details >>> ";
-                }
-                catch (Exception ex)
-                {
-                    u2.nom = ex.StackTrace;
+                    //sauvegarde des nouvelles informations
+
+                    db.modifierDepot(u.codeDEPOT, u.adresse, u.email, u.localisation, u.nom, u.pays, u.telephone, u.ville, u.codeU);
                 }
 
-                return u2;
-        }
-
-        public Depot rechercher(string code)
-        {
-            Depot u = db.Depots.First(x => x.codeDEPOT == code);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.nom = "Aucun enregistrement trouve.";
-                return u;
+                else
+                {
+                    u.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+
+            return u;
         }
 
         public Depot supprimer(Depot u)
         {
-
-            if (u != null)
+            if (u == null)
+                u = new Depot();
+            try
             {
+                if (db.Depots.First(x => x.codeDEPOT == u.codeDEPOT) != null)
+                {
 
-                try
-                {
+                    //sauvegarde des nouvelles informations
+
                     db.supprimerDepot(u.codeDEPOT, u.codeU);
-                    u.nom = "Erreur rencontree. Details >>> ";
                 }
-                catch (Exception ex)
+
+                else
                 {
-                    u.nom = ex.StackTrace;
+                    u.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
                 }
+            }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+            return u;
+        }
+
+
+        public Depot rechercher(string code)
+        {
+            Depot u = new Depot();
+            try
+            {
+                u = db.Depots.First(x => x.codeDEPOT == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.adresse = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+            return u;
+        }
+
+
+        public List<Depot> rechercherParMC(Func<Depot, bool> predicate)
+        {
+            List<Depot> us = new List<Depot>();
+            try
+            {
+                us = db.Depots.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                Depot p = new Depot();
+                p.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
+        }
+
+
+        public Depot rechercherUnique(Depot m)
+        {
+            Depot u = new Depot();
+
+            try
+            {
+                u = db.Depots.First(x => x.adresse == m.adresse && x.email == m.email && x.localisation == m.localisation && x.nom == m.nom && x.pays == m.pays && x.telephone == m.telephone && x.ville == m.ville);
 
             }
-                return u;
+
+            catch (Exception ex)
+            {
+                u.adresse = ex.StackTrace;
+            }
+
+
+            return u;
+
         }
 
-        public IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate)
+        public List<Depot> rechercherTous()
         {
-            var us = db.Marketers.Where(predicate);
+            List<Depot> us = new List<Depot>();
+            try
+            {
+                us = db.Depots.ToList();
+            }
+            catch (Exception ex)
+            {
+                Depot p = new Depot();
+                p.adresse = ex.StackTrace;
+                us.Add(p);
+            }
 
-            return us.ToList();
-        }
-
-        public IEnumerable<Depot> rechercherTous()
-        {
-            return db.Depots.ToList();
+            return us;
 
         }
 

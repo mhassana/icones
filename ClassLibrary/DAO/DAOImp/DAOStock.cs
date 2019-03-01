@@ -18,34 +18,38 @@ namespace ClassLibrary.DAO
 
         public Stock ajouter(Stock u)
         {
-            db.Stocks.Add(u);
-            db.SaveChanges();
+            try
+            {
+                db.creerStock(u.quantite, u.codeStation, u.codePRODUIT, u.libelle, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.libelle = ex.StackTrace;
+            }
 
             return u;
         }
 
         public Stock modifier(Stock u)
         {
-            //recherche de l'objet dans la bd
-            Stock u2 = db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK);
-
+            if (u == null)
+                u = new Stock();
+            
             //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (db.Stocks.First(x => x.codeSTOCK == u.codeSTOCK) != null)
             {
-                //mise a jour des modifications
-                u2.libelle = u.libelle;
-                u2.quantite = u.quantite;
 
                 //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
+                db.modifierStock(u.codeSTOCK, u.quantite, u.codeStation, u.codePRODUIT, u.libelle, u.codeU);
             }
+
             else
             {
                 u.libelle = "Cet enregistrement n'existe pas dans la base de donnees.";
-                return u;
             }
+
+            return u;
         }
 
         public Stock rechercher(string code)

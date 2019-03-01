@@ -17,78 +17,154 @@ namespace ClassLibrary.DAO
 
         public Commande_marketer ajouter(Commande_marketer u)
         {
-            db.Commande_marketer.Add(u);
-            db.SaveChanges();
+            if (u == null)
+                u = new Commande_marketer();
+            try
+            {
+                db.creerCommande_marketer(u.quantite, u.codeMARKETER, u.codeFOURNISSEUR, u.codePRODUIT, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.Produit.designation = ex.StackTrace;
+            }
 
             return u;
         }
 
         public Commande_marketer modifier(Commande_marketer u)
         {
-            //recherche de l'objet dans la bd
-            Commande_marketer u2 = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == u.codeCOMMANDE_MARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Commande_marketer();
+            try
             {
-                //mise a jour des modifications
-                u2.quantite = u.quantite;
+                //verification de l'existence de l'objet dans la bd
+                if (db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == u.codeCOMMANDE_MARKETER) != null)
+                {
 
-                //sauvegarde des nouvelles informations
+                    //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
+                    db.modifierCommande_marketer(u.codeCOMMANDE_MARKETER, u.quantite, u.codeMARKETER, u.codeFOURNISSEUR, u.codePRODUIT, u.codeU);
+                }
+
+                else
+                {
+                    u.Produit.designation = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                u.quantite = 0;
-                return u;
+                u.Produit.designation = ex.StackTrace;
             }
-        }
 
-        public Commande_marketer rechercher(string code)
-        {
-            Commande_marketer u = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == code);
 
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.quantite = 0;
-                return u;
-            }
+            return u;
         }
 
         public Commande_marketer supprimer(Commande_marketer u)
         {
-            Commande_marketer u2 = rechercher(u.codeCOMMANDE_MARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Commande_marketer();
+            try
             {
-                db.Commande_marketer.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
+                if (db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == u.codeCOMMANDE_MARKETER) != null)
+                {
 
-            else
-            {
-                u2.quantite = 0;
-                return u2;
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerCommande_marketer(u.codeCOMMANDE_MARKETER, u.codeMARKETER, u.codeFOURNISSEUR, u.codePRODUIT, u.codeU);
+                }
+
+                else
+                {
+                    u.Produit.designation = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.Produit.designation = ex.StackTrace;
+            }
+            return u;
         }
 
-        public IEnumerable<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate)
-        {
-            var us = db.Commande_marketer.Where(predicate);
 
-            return us.ToList();
+        public Commande_marketer rechercher(string code)
+        {
+            Commande_marketer u = new Commande_marketer();
+            try
+            {
+                u = db.Commande_marketer.First(x => x.codeCOMMANDE_MARKETER == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.Produit.designation = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.Produit.designation = ex.StackTrace;
+            }
+
+            return u;
         }
 
-        public IEnumerable<Commande_marketer> rechercherTous()
+
+        public List<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate)
         {
-            return db.Commande_marketer.ToList();
+            List<Commande_marketer> us = new List<Commande_marketer>();
+            try
+            {
+                us = db.Commande_marketer.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                Commande_marketer p = new Commande_marketer();
+                p.Produit.designation = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
+        }
+
+
+        //public Commande_marketer rechercherUnique(Commande_marketer m)
+        //{
+        //    Commande_marketer u = new Commande_marketer();
+
+        //    try
+        //    {
+        //        u = db.Commande_marketer.First(x => x.quantite == m.quantite && x.libelle == m.libelle && x.prix == m.prix && x.unite_mesure == m.unite_mesure);
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        u.designation = ex.StackTrace;
+        //    }
+
+
+        //    return u;
+
+        //}
+
+        public List<Commande_marketer> rechercherTous()
+        {
+            List<Commande_marketer> us = new List<Commande_marketer>();
+            try
+            {
+                us = db.Commande_marketer.ToList();
+            }
+            catch (Exception ex)
+            {
+                Commande_marketer p = new Commande_marketer();
+                p.Produit.designation = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
 
         }
 

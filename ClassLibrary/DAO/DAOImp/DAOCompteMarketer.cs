@@ -18,78 +18,153 @@ namespace ClassLibrary.DAO
 
         public Compte_marketer ajouter(Compte_marketer u)
         {
-            db.Compte_marketer.Add(u);
-            db.SaveChanges();
+            if (u == null)
+                u = new Compte_marketer();
+            try
+            {
+                db.creerCompte_marketer(u.montant_net, u.codeMARKETER, u.codeU);
+            }
+            catch (Exception ex)
+            {
+                u.Marketer.adresse = ex.StackTrace;
+            }
 
             return u;
         }
 
         public Compte_marketer modifier(Compte_marketer u)
         {
-            //recherche de l'objet dans la bd
-            Compte_marketer u2 = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == u.codeCOMPTE_MARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Compte_marketer();
+            try
             {
-                //mise a jour des modifications
-                u2.montant_net = u.montant_net;
+                //verification de l'existence de l'objet dans la bd
+                if (db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == u.codeCOMPTE_MARKETER) != null)
+                {
 
-                //sauvegarde des nouvelles informations
+                    //sauvegarde des nouvelles informations
 
-                db.SaveChanges();
-                return u;
+                    db.modifierCompte_marketer(u.codeCOMPTE_MARKETER, u.montant_net, u.codeMARKETER, u.codeU);
+                }
+
+                else
+                {
+                    u.Marketer.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                u.montant_net = 0;
-                return u;
+                u.Marketer.adresse = ex.StackTrace;
             }
-        }
 
-        public Compte_marketer rechercher(string code)
-        {
-            Compte_marketer u = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == code);
 
-            //verification de l'existence de l'objet dans la bd
-            if (u != null) return u;
-
-            else
-            {
-                u.montant_net = 0;
-                return u;
-            }
+            return u;
         }
 
         public Compte_marketer supprimer(Compte_marketer u)
         {
-            Compte_marketer u2 = rechercher(u.codeCOMPTE_MARKETER);
-
-            //verification de l'existence de l'objet dans la bd
-            if (u2 != null)
+            if (u == null)
+                u = new Compte_marketer();
+            try
             {
-                db.Compte_marketer.Remove(u2);
-                db.SaveChanges();
-                return u2;
-            }
+                if (db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == u.codeCOMPTE_MARKETER) != null)
+                {
 
-            else
-            {
-                u2.montant_net = 0;
-                return u2;
+                    //sauvegarde des nouvelles informations
+
+                    db.supprimerCompte_marketer(u.codeCOMPTE_MARKETER, u.codeMARKETER, u.codeU);
+                }
+
+                else
+                {
+                    u.Marketer.adresse = "Cet enregistrement n'existe pas dans la base de donnees.";
+                }
             }
+            catch (Exception ex)
+            {
+                u.Marketer.adresse = ex.StackTrace;
+            }
+            return u;
         }
 
-        public IEnumerable<Compte_marketer> rechercherParMC(Func<Compte_marketer, bool> predicate)
-        {
-            var us = db.Compte_marketer.Where(predicate);
 
-            return us.ToList();
+        public Compte_marketer rechercher(string code)
+        {
+            Compte_marketer u = new Compte_marketer();
+            try
+            {
+                u = db.Compte_marketer.First(x => x.codeCOMPTE_MARKETER == code);
+
+                //verification de l'existence de l'objet dans la bd
+                if (u != null) return u;
+
+                else
+                {
+                    u.Marketer.adresse = "Aucun enregistrement trouve.";
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                u.Marketer.adresse = ex.StackTrace;
+            }
+
+            return u;
         }
 
-        public IEnumerable<Compte_marketer> rechercherTous()
+
+        public List<Compte_marketer> rechercherParMC(Func<Compte_marketer, bool> predicate)
         {
-            return db.Compte_marketer.ToList();
+            List<Compte_marketer> us = new List<Compte_marketer>();
+            try
+            {
+                us = db.Compte_marketer.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                Compte_marketer p = new Compte_marketer();
+                p.Marketer.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
+        }
+
+
+        public Compte_marketer rechercherUnique(Compte_marketer m)
+        {
+            Compte_marketer u = new Compte_marketer();
+
+            try
+            {
+                u = db.Compte_marketer.First(x => x.codeMARKETER == m.codeMARKETER);
+            }
+
+            catch (Exception ex)
+            {
+                u.Marketer.adresse = ex.StackTrace;
+            }
+
+
+            return u;
+
+        }
+
+        public List<Compte_marketer> rechercherTous()
+        {
+            List<Compte_marketer> us = new List<Compte_marketer>();
+            try
+            {
+                us = db.Compte_marketer.ToList();
+            }
+            catch (Exception ex)
+            {
+                Compte_marketer p = new Compte_marketer();
+                p.Marketer.adresse = ex.StackTrace;
+                us.Add(p);
+            }
+
+            return us;
 
         }
 

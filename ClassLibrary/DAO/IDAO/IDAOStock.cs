@@ -17,9 +17,11 @@ namespace ClassLibrary.DAO.IDAO
 
         Stock supprimer(Stock u);
 
-        IEnumerable<Stock> rechercherParMC(Func<Stock, bool> predicate);
+        List<Stock> rechercherParMC(Func<Stock, bool> predicate);
 
-        IEnumerable<Stock> rechercherTous();
+        Stock rechercherUnique(Stock m);
+
+        List<Stock> rechercherTous();
 
     }
 }

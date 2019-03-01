@@ -16,8 +16,10 @@ namespace ClassLibrary.DAO.IDAO
 
         Commande_marketer supprimer(Commande_marketer u);
 
-        IEnumerable<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate);
+        List<Commande_marketer> rechercherParMC(Func<Commande_marketer, bool> predicate);
 
-        IEnumerable<Commande_marketer> rechercherTous();
+        Commande_marketer rechercherUnique(Commande_marketer m);
+
+        List<Commande_marketer> rechercherTous();
     }
 }

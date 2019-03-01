@@ -17,9 +17,11 @@ namespace ClassLibrary.DAO.IDAO
 
         Fournisseur supprimer(Fournisseur u);
 
-        IEnumerable<Fournisseur> rechercherParMC(Func<Fournisseur, bool> predicate);
+        List<Fournisseur> rechercherParMC(Func<Fournisseur, bool> predicate);
 
-        IEnumerable<Fournisseur> rechercherTous();
+        Fournisseur rechercherUnique(Fournisseur m);
+
+        List<Fournisseur> rechercherTous();
 
     }
 }

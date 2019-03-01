@@ -17,9 +17,11 @@ namespace ClassLibrary.DAO.IDAO
 
         Taxe supprimer(Taxe u);
 
-        IEnumerable<Taxe> rechercherParMC(Func<Taxe, bool> predicate);
+        List<Taxe> rechercherParMC(Func<Taxe, bool> predicate);
 
-        IEnumerable<Taxe> rechercherTous();
+        Taxe rechercherUnique(Taxe m);
+
+        List<Taxe> rechercherTous();
 
     }
 }

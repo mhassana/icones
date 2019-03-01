@@ -16,9 +16,11 @@ namespace ClassLibrary.DAO.IDAO
 
         Depot supprimer(Depot u);
 
-        IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate);
+        List<Depot> rechercherParMC(Func<Depot, bool> predicate);
 
-        IEnumerable<Depot> rechercherTous();
+        Depot rechercherUnique(Depot m);
+
+        List<Depot> rechercherTous();
 
     }
 }

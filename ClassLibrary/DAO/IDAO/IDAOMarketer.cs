@@ -17,12 +17,10 @@ namespace ClassLibrary.DAO.IDAO
 
         Marketer supprimer(Marketer u);
         
-
-        IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate);
-
-
+        List<Marketer> rechercherParMC(Func<Marketer, bool> predicate);
+        
         Marketer rechercherUnique(Marketer m);
 
-        IEnumerable<Marketer> rechercherTous();
+        List<Marketer> rechercherTous();
     }
 }

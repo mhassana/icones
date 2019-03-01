@@ -14,14 +14,13 @@ namespace ClassLibrary.DAO.IDAO
 
         Produit supprimer(Produit u);
 
-
         Produit rechercher(string code);
 
-        IEnumerable<Produit> rechercherParMC(Func<Produit, bool> predicate);
+        List<Produit> rechercherParMC(Func<Produit, bool> predicate);
 
         Produit rechercherUnique(Produit m);
 
-        IEnumerable<Produit> rechercherTous();
+        List<Produit> rechercherTous();
 
     }
 }

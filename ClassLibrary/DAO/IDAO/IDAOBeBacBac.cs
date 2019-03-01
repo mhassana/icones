@@ -17,8 +17,10 @@ namespace ClassLibrary.DAO.IDAO
 
         BE_bac_bac supprimer(BE_bac_bac u);
 
-        IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate);
+        List<BE_bac_bac> rechercherParMC(Func<BE_bac_bac, bool> predicate);
 
-        IEnumerable<BE_bac_bac> rechercherTous();
+        BE_bac_bac rechercherUnique(BE_bac_bac m);
+
+        List<BE_bac_bac> rechercherTous();
     }
 }

@@ -17,9 +17,11 @@ namespace ClassLibrary.DAO.IDAO
 
         Transaction_effectuee supprimer(Transaction_effectuee u);
 
-        IEnumerable<Marketer> rechercherParMC(Func<Marketer, bool> predicate);
+        List<Transaction_effectuee> rechercherParMC(Func<Transaction_effectuee, bool> predicate);
 
-        IEnumerable<Transaction_effectuee> rechercherTous();
+        Transaction_effectuee rechercherUnique(Transaction_effectuee m);
+
+        List<Transaction_effectuee> rechercherTous();
 
     }
 }

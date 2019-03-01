@@ -17,8 +17,10 @@ namespace ClassLibrary.DAO.IDAO
 
         FacturationMarketer supprimer(FacturationMarketer u);
 
-        IEnumerable<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate);
+        List<FacturationMarketer> rechercherParMC(Func<FacturationMarketer, bool> predicate);
 
-        IEnumerable<FacturationMarketer> rechercherTous();
+        FacturationMarketer rechercherUnique(FacturationMarketer m);
+
+        List<FacturationMarketer> rechercherTous();
     }
 }
