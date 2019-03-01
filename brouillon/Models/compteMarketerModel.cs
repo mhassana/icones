@@ -7,7 +7,7 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class compteMarketerModel
+    public class CompteMarketerModel
     {
         public decimal montant_net { get; set; }
         public string codeU { get; set; }

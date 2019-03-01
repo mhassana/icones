@@ -7,9 +7,9 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class facturationMarketerModel
+    public class FacturationMarketerModel
     {
-        public facturationMarketerModel()
+        public FacturationMarketerModel()
         {
             this.TrancheMarketers = new HashSet<TrancheMarketer>();
         }

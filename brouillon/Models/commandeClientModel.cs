@@ -7,9 +7,9 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class commandeClientModel
+    public class CommandeClientModel
     {
-        public commandeClientModel()
+        public CommandeClientModel()
         {
             this.BE_export = new HashSet<BE_export>();
             this.BE_livraison = new HashSet<BE_livraison>();

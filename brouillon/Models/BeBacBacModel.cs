@@ -7,7 +7,7 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class BeBacBacModel
+    public class BEBacBacModel
     {
         public string libelle { get; set; }
         public decimal quantite { get; set; }

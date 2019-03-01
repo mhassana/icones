@@ -7,9 +7,9 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class commandeMarketerModel
+    public class CommandeMarketerModel
     {
-        public commandeMarketerModel()
+        public CommandeMarketerModel()
         {
             this.BE_bac_bac = new HashSet<BE_bac_bac>();
             this.FacturationMarketers = new HashSet<FacturationMarketer>();

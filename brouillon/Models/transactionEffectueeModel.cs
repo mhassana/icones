@@ -7,7 +7,7 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class transactionEffectueeModel
+    public class TransactionEffectueeModel
     {
         public System.DateTime date_transaction { get; set; }
         public string libelle { get; set; }

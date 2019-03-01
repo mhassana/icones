@@ -7,9 +7,9 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class taxeModel
+    public class TaxeModel
     {
-        public taxeModel()
+        public TaxeModel()
         {
             this.JoinTaxeToFacturations = new HashSet<JoinTaxeToFacturation>();
         }

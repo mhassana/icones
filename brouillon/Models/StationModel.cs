@@ -7,9 +7,9 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class stationsModel
+    public class StationModel
     {
-        public stationsModel()
+        public StationModel()
         {
             this.Pompistes = new HashSet<Pompiste>();
             this.Stocks = new HashSet<Stock>();

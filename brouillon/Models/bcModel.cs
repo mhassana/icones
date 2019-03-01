@@ -7,7 +7,7 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class bcModel
+    public class BCModel
     {
         public System.DateTime date_emission { get; set; }
         public decimal quantite { get; set; }

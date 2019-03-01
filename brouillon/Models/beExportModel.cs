@@ -7,7 +7,7 @@ using System.Web;
 
 namespace brouillon.Models
 {
-    public class beExportModel
+    public class BEExportModel
     {
         public string adresse { get; set; }
         public string cni_chauffeur { get; set; }
