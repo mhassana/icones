@@ -13,6 +13,9 @@
 <table class="table">
     <tr>
         <th>
+            Code
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.date_paiement)
         </th>
         <th>
@@ -36,6 +39,9 @@
 @foreach (ClassLibrary.Reglement_dette item in ViewBag.listeReglement) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.codeREGLEMENT_DETTE)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.date_paiement)
         </td>
         <td>
@@ -54,9 +60,9 @@
             @Html.DisplayFor(modelItem => item.date_c)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codeREGLEMENT_DETTE }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codeREGLEMENT_DETTE }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codeREGLEMENT_DETTE })
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeREGLEMENT_DETTE }) |
+            @Html.ActionLink("Details", "Details", new { code=item.codeREGLEMENT_DETTE }) |
+            @Html.ActionLink("Delete", "Delete", new { code=item.codeREGLEMENT_DETTE })
         </td>
     </tr>
 }
