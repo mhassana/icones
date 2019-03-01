@@ -171,11 +171,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BCModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarketerController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
-    <Compile Include="Controllers\Reglement_detteModelController.cs" />
+    <Compile Include="Controllers\Reglement_detteController.cs" />
     <Compile Include="DAL\isoftTankContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -288,15 +289,19 @@
     <Content Include="Views\Produit\Edit.cshtml" />
     <Content Include="Views\Produit\Delete.cshtml" />
     <Content Include="Views\Marketer\Create.cshtml" />
-    <Content Include="Views\Reglement_detteModel\Create.cshtml" />
-    <Content Include="Views\Reglement_detteModel\Delete.cshtml" />
-    <Content Include="Views\Reglement_detteModel\Details.cshtml" />
-    <Content Include="Views\Reglement_detteModel\Edit.cshtml" />
-    <Content Include="Views\Reglement_detteModel\Index.cshtml" />
+    <Content Include="Views\BCModels\Create.cshtml" />
+    <Content Include="Views\BCModels\Delete.cshtml" />
+    <Content Include="Views\BCModels\Details.cshtml" />
+    <Content Include="Views\BCModels\Edit.cshtml" />
+    <Content Include="Views\BCModels\Index.cshtml" />
+    <Content Include="Views\Marketer\Details.cshtml" />
+    <Content Include="Views\Reglement_dette\Index.cshtml" />
+    <Content Include="Views\Reglement_dette\Details.cshtml" />
+    <Content Include="Views\Reglement_dette\Edit.cshtml" />
+    <Content Include="Views\Reglement_dette\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Reglement_dette\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

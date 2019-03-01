@@ -18,6 +18,6 @@ namespace brouillon.Models
         public string codeBC { get; set; }
         public System.DateTime date_c { get; set; }
 
-        public virtual Depot Depot { get; set; }
+        //public virtual Depot Depot { get; set; }
     }
 }

@@ -20,5 +20,7 @@ namespace brouillon.Models
         }
 
         public System.Data.Entity.DbSet<brouillon.Models.Reglement_detteModel> Reglement_detteModel { get; set; }
+
+        public System.Data.Entity.DbSet<brouillon.Models.BCModel> BCModels { get; set; }
     }
 }

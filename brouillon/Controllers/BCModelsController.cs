@@ -10,107 +10,107 @@ using brouillon.Models;
 
 namespace brouillon.Controllers
 {
-    public class Reglement_detteModelController : Controller
+    public class BCModelsController : Controller
     {
         private brouillonContext db = new brouillonContext();
 
-        // GET: Reglement_detteModel
+        // GET: BCModels
         public ActionResult Index()
         {
-            return View(db.Reglement_detteModel.ToList());
+            return View(db.BCModels.ToList());
         }
 
-        // GET: Reglement_detteModel/Details/5
+        // GET: BCModels/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reglement_detteModel reglement_detteModel = db.Reglement_detteModel.Find(id);
-            if (reglement_detteModel == null)
+            BCModel bCModel = db.BCModels.Find(id);
+            if (bCModel == null)
             {
                 return HttpNotFound();
             }
-            return View(reglement_detteModel);
+            return View(bCModel);
         }
 
-        // GET: Reglement_detteModel/Create
+        // GET: BCModels/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Reglement_detteModel/Create
+        // POST: BCModels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codeREGLEMENT_DETTE,date_paiement,libelle,montant,codeU,codeDETTE,date_c")] Reglement_detteModel reglement_detteModel)
+        public ActionResult Create([Bind(Include = "codeBC,date_emission,quantite,codeU,codeDEPOT,date_c")] BCModel bCModel)
         {
             if (ModelState.IsValid)
             {
-                db.Reglement_detteModel.Add(reglement_detteModel);
+                db.BCModels.Add(bCModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(reglement_detteModel);
+            return View(bCModel);
         }
 
-        // GET: Reglement_detteModel/Edit/5
+        // GET: BCModels/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reglement_detteModel reglement_detteModel = db.Reglement_detteModel.Find(id);
-            if (reglement_detteModel == null)
+            BCModel bCModel = db.BCModels.Find(id);
+            if (bCModel == null)
             {
                 return HttpNotFound();
             }
-            return View(reglement_detteModel);
+            return View(bCModel);
         }
 
-        // POST: Reglement_detteModel/Edit/5
+        // POST: BCModels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codeREGLEMENT_DETTE,date_paiement,libelle,montant,codeU,codeDETTE,date_c")] Reglement_detteModel reglement_detteModel)
+        public ActionResult Edit([Bind(Include = "codeBC,date_emission,quantite,codeU,codeDEPOT,date_c")] BCModel bCModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(reglement_detteModel).State = EntityState.Modified;
+                db.Entry(bCModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(reglement_detteModel);
+            return View(bCModel);
         }
 
-        // GET: Reglement_detteModel/Delete/5
+        // GET: BCModels/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reglement_detteModel reglement_detteModel = db.Reglement_detteModel.Find(id);
-            if (reglement_detteModel == null)
+            BCModel bCModel = db.BCModels.Find(id);
+            if (bCModel == null)
             {
                 return HttpNotFound();
             }
-            return View(reglement_detteModel);
+            return View(bCModel);
         }
 
-        // POST: Reglement_detteModel/Delete/5
+        // POST: BCModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Reglement_detteModel reglement_detteModel = db.Reglement_detteModel.Find(id);
-            db.Reglement_detteModel.Remove(reglement_detteModel);
+            BCModel bCModel = db.BCModels.Find(id);
+            db.BCModels.Remove(bCModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

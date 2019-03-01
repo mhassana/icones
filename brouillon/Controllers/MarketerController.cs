@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ClassLibrary;
+using brouillon.Models;
 
 namespace brouillon.Controllers
 {
@@ -17,9 +18,26 @@ namespace brouillon.Controllers
         }
 
         // GET: Marketer/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string code)
         {
-            return View();
+            Marketer x = dao.rechercher(code);
+
+            MarketerModel pm = new MarketerModel
+            {
+                CodeMARKETER = x.codeMARKETER,
+                Nom = x.nom,
+                Adresse = x.adresse,
+                Email = x.email,
+                Pays = x.pays,
+                Telephone = x.telephone,
+                Ville = x.ville
+            };
+
+            if (x == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pm);
         }
 
         public ActionResult Creer()
