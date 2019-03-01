@@ -25,6 +25,7 @@ namespace brouillon.Models
         public string ville { get; set; }
         public string codeU { get; set; }
         public string codeMARKETER { get; set; }
+
         [Key]
         public string codeStation { get; set; }
         public System.DateTime date_c { get; set; }

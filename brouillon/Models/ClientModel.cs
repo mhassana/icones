@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +22,8 @@ namespace brouillon.Models
         public string telephone { get; set; }
         public string ville { get; set; }
         public string codeU { get; set; }
+
+        [Key]
         public string codeCLIENT { get; set; }
         public System.DateTime date_c { get; set; }
 

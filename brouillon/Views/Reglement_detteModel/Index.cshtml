@@ -1,0 +1,64 @@
+﻿@model IEnumerable<brouillon.Models.Reglement_detteModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date_paiement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeDETTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_paiement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeDETTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codeREGLEMENT_DETTE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.codeREGLEMENT_DETTE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.codeREGLEMENT_DETTE })
+        </td>
+    </tr>
+}
+
+</table>

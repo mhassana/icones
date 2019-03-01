@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -23,6 +24,8 @@ namespace brouillon.Models
         public string codeCOMMANDE_CLIENT { get; set; }
         public string codeDEPOT { get; set; }
         public string codeTRANSPORTEUR { get; set; }
+
+        [Key]
         public string codeBE_SOUTAGE { get; set; }
         public System.DateTime date_c { get; set; }
 

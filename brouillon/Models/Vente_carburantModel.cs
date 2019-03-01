@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -11,6 +12,8 @@ namespace brouillon.Models
         public string codeU { get; set; }
         public string codePOMPE { get; set; }
         public string codePOMPISTE { get; set; }
+
+        [Key]
         public string codeVENTE_CARBURANT { get; set; }
         public System.DateTime date_c { get; set; }
 

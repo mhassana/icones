@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -8,6 +9,8 @@ namespace brouillon.Models
         public decimal quantite { get; set; }
         public string codeU { get; set; }
         public string codeCOMMANDE_CLIENT { get; set; }
+
+        [Key]
         public string codeRECEPTION { get; set; }
         public System.DateTime date_c { get; set; }
 

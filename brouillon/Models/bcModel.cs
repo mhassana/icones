@@ -13,6 +13,7 @@ namespace brouillon.Models
         public decimal quantite { get; set; }
         public string codeU { get; set; }
         public string codeDEPOT { get; set; }
+
         [Key]
         public string codeBC { get; set; }
         public System.DateTime date_c { get; set; }

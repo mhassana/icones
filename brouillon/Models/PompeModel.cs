@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -7,6 +8,8 @@ namespace brouillon.Models
         public string libelle { get; set; }
         public string codeU { get; set; }
         public string codeTANKER { get; set; }
+
+        [Key]
         public string codePOMPE { get; set; }
         public System.DateTime date_c { get; set; }
 

@@ -18,6 +18,7 @@ namespace brouillon.Models
             this.Stocks = new HashSet<Stock>();
             this.Tankers = new HashSet<Tanker>();
         }
+
         [Key]
         public string CodePRODUIT { get; set; }
 

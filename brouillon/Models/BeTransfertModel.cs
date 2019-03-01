@@ -17,6 +17,7 @@ namespace brouillon.Models
         public string codeU { get; set; }
         public string codeDEPOT { get; set; }
         public string codeMARKETER { get; set; }
+
         [Key]
         public string codeBE_TRANSFERT { get; set; }
         public System.DateTime date_c { get; set; }

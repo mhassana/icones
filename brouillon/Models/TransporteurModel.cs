@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -19,6 +20,8 @@ namespace brouillon.Models
         public string telephone { get; set; }
         public string ville { get; set; }
         public string codeU { get; set; }
+
+        [Key]
         public string codeTRANSPORTEUR { get; set; }
         public System.DateTime date_c { get; set; }
 

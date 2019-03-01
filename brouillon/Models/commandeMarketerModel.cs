@@ -19,6 +19,7 @@ namespace brouillon.Models
         public string codeFOURNISSEUR { get; set; }
         public string codeMARKETER { get; set; }
         public string codePRODUIT { get; set; }
+
         [Key]
         public string codeCOMMANDE_MARKETER { get; set; }
         public System.DateTime date_c { get; set; }

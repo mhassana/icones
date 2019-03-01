@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ClassLibrary;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -20,6 +21,8 @@ namespace brouillon.Models
         public string statut { get; set; }
         public string codeU { get; set; }
         public string codeUTILISATEUR { get; set; }
+
+        [Key]
         public string codeCOMPTE_UTILISATEUR { get; set; }
         public System.DateTime date_c { get; set; }
 

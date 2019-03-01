@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -9,6 +10,8 @@ namespace brouillon.Models
         public int nbe_tentative { get; set; }
         public string operation_effectuee { get; set; }
         public string codeCompteU { get; set; }
+
+        [Key]
         public string codeHISTORIQUE { get; set; }
 
         public virtual Compte_utilisateur Compte_utilisateur { get; set; }

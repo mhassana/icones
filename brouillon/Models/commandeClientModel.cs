@@ -24,6 +24,7 @@ namespace brouillon.Models
         public string codePOINT_CONSOMMATION { get; set; }
         public string codeMARKETER { get; set; }
         public string codePRODUIT { get; set; }
+
         [Key]
         public string codeCOMMANDE_CLIENT { get; set; }
         public System.DateTime date_c { get; set; }

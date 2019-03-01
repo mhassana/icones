@@ -14,6 +14,7 @@ namespace brouillon.Models
         public decimal montant_transaction { get; set; }
         public string codeU { get; set; }
         public string codeCOMPTE_MARKETER { get; set; }
+
         [Key]
         public string codeTRANSACTION_EFFECTUEE { get; set; }
         public System.DateTime date_c { get; set; }

@@ -14,6 +14,7 @@ namespace brouillon.Models
         public string codeU { get; set; }
         public string codeStation { get; set; }
         public string codePRODUIT { get; set; }
+
         [Key]
         public string codeSTOCK { get; set; }
         public System.DateTime date_c { get; set; }

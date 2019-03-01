@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -13,6 +14,8 @@ namespace brouillon.Models
         public decimal capacite { get; set; }
         public string nom { get; set; }
         public string codeU { get; set; }
+
+        [Key]
         public string codeNAVIRE { get; set; }
         public System.DateTime date_c { get; set; }
 

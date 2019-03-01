@@ -90,6 +90,7 @@
     <Compile Include="DAO\DAOImp\DAOFournisseur.cs" />
     <Compile Include="DAO\DAOImp\DAOMarketer.cs" />
     <Compile Include="DAO\DAOImp\DAOProduit.cs" />
+    <Compile Include="DAO\DAOImp\DAOReglement_dette.cs" />
     <Compile Include="DAO\DAOImp\DAOStock.cs" />
     <Compile Include="DAO\DAOImp\DAOTaxe.cs" />
     <Compile Include="DAO\DAOImp\DAOTrancheMarketer.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="DAO\IDAO\IDAOFournisseur.cs" />
     <Compile Include="DAO\IDAO\IDAOMarketer.cs" />
     <Compile Include="DAO\IDAO\IDAOProduit.cs" />
+    <Compile Include="DAO\IDAO\IDAOReglement_dette.cs" />
     <Compile Include="DAO\IDAO\IDAOStock.cs" />
     <Compile Include="DAO\IDAO\IDAOTaxe.cs" />
     <Compile Include="DAO\IDAO\IDAOTrancheMarketer.cs" />

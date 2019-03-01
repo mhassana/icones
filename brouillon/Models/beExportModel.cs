@@ -23,6 +23,7 @@ namespace brouillon.Models
         public string codeDEPOT { get; set; }
         public string codeCOMMANDE_CLIENT { get; set; }
         public string codeTRANSPORTEUR { get; set; }
+
         [Key]
         public string codeBE_EXPORT { get; set; }
         public System.DateTime date_c { get; set; }

@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarketerController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
+    <Compile Include="Controllers\Reglement_detteModelController.cs" />
     <Compile Include="DAL\isoftTankContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +187,7 @@
     <Compile Include="Models\BELivraisonModel.cs" />
     <Compile Include="Models\BESoutageModel.cs" />
     <Compile Include="Models\BETransfertModel.cs" />
+    <Compile Include="Models\brouillonContext.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\CommandeClientModel.cs" />
     <Compile Include="Models\CommandeMarketerModel.cs" />
@@ -286,9 +288,15 @@
     <Content Include="Views\Produit\Edit.cshtml" />
     <Content Include="Views\Produit\Delete.cshtml" />
     <Content Include="Views\Marketer\Create.cshtml" />
+    <Content Include="Views\Reglement_detteModel\Create.cshtml" />
+    <Content Include="Views\Reglement_detteModel\Delete.cshtml" />
+    <Content Include="Views\Reglement_detteModel\Details.cshtml" />
+    <Content Include="Views\Reglement_detteModel\Edit.cshtml" />
+    <Content Include="Views\Reglement_detteModel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Reglement_dette\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

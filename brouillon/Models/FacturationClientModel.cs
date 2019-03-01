@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ClassLibrary;
+using System.ComponentModel.DataAnnotations;
 
 namespace brouillon.Models
 {
@@ -17,6 +18,8 @@ namespace brouillon.Models
         public decimal montant_total { get; set; }
         public string codeU { get; set; }
         public string codeCOMMANDE_CLIENT { get; set; }
+
+        [Key]
         public string codeFACTURATION_CLIENT { get; set; }
         public System.DateTime date_c { get; set; }
 

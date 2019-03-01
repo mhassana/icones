@@ -17,6 +17,7 @@ namespace brouillon.Models
         public string libelle { get; set; }
         public decimal taux { get; set; }
         public string codeU { get; set; }
+
         [Key]
         public string codeTAXE { get; set; }
         public System.DateTime date_c { get; set; }
