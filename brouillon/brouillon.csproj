@@ -172,6 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BCModelsController.cs" />
+    <Compile Include="Controllers\FournisseurController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarketerController.cs" />
@@ -299,6 +300,10 @@
     <Content Include="Views\Reglement_dette\Details.cshtml" />
     <Content Include="Views\Reglement_dette\Edit.cshtml" />
     <Content Include="Views\Reglement_dette\Create.cshtml" />
+    <Content Include="Views\Fournisseur\afficherTous.cshtml" />
+    <Content Include="Views\Fournisseur\Details.cshtml" />
+    <Content Include="Views\Fournisseur\Create.cshtml" />
+    <Content Include="Views\Fournisseur\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

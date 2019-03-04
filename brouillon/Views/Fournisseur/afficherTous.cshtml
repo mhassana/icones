@@ -1,0 +1,76 @@
+﻿@model IEnumerable<brouillon.Models.FournisseurModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>afficherTous</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClassLibrary.Fournisseur item in ViewBag.listeFournisseur) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeFOURNISSEUR }) |
+            @Html.ActionLink("Details", "Details", new { code = item.codeFOURNISSEUR }) |
+            @Html.ActionLink("Delete", "Delete", new { code = item.codeFOURNISSEUR })
+        </td>
+    </tr>
+}
+
+</table>
