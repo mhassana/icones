@@ -1,0 +1,69 @@
+﻿@model IEnumerable<brouillon.Models.FacturationMarketerModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+}
+
+<h2>FACTURES MARKETERS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montant_paye)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montant_restant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montant_total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeCOMMANDE_MARKETER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClassLibrary.FacturationMarketer item in ViewBag.listeFacturationMarketer) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montant_paye)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montant_restant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montant_total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeCOMMANDE_MARKETER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeFACTURATION_MARKETER }) |
+            @Html.ActionLink("Details", "Details", new { code = item.codeFACTURATION_MARKETER }) |
+            @Html.ActionLink("Delete", "Delete", new { code = item.codeFACTURATION_MARKETER })
+        </td>
+    </tr>
+}
+
+</table>

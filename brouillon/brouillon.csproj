@@ -61,6 +61,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -172,13 +173,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BCModelsController.cs" />
+    <Compile Include="Controllers\CompteMarketerController.cs" />
     <Compile Include="Controllers\DepotController.cs" />
+    <Compile Include="Controllers\FactureMarketerController.cs" />
     <Compile Include="Controllers\FournisseurController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarketerController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
     <Compile Include="Controllers\Reglement_detteController.cs" />
+    <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\TaxeController.cs" />
     <Compile Include="DAL\isoftTankContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -315,6 +319,18 @@
     <Content Include="Views\Taxe\Edit.cshtml" />
     <Content Include="Views\Taxe\Details.cshtml" />
     <Content Include="Views\Taxe\Create.cshtml" />
+    <Content Include="Views\Stock\Create.cshtml" />
+    <Content Include="Views\Stock\afficherTous.cshtml" />
+    <Content Include="Views\Stock\Details.cshtml" />
+    <Content Include="Views\Stock\Edit.cshtml" />
+    <Content Include="Views\CompteMarketer\afficherTous.cshtml" />
+    <Content Include="Views\CompteMarketer\Details.cshtml" />
+    <Content Include="Views\CompteMarketer\Create.cshtml" />
+    <Content Include="Views\CompteMarketer\Edit.cshtml" />
+    <Content Include="Views\FactureMarketer\afficherTous.cshtml" />
+    <Content Include="Views\FactureMarketer\Edit.cshtml" />
+    <Content Include="Views\FactureMarketer\Create.cshtml" />
+    <Content Include="Views\FactureMarketer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

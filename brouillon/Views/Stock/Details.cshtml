@@ -1,0 +1,68 @@
+﻿@model brouillon.Models.StockModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StockModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codeU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codeStation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeStation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codePRODUIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codePRODUIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_c)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_c)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codeSTOCK }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
