@@ -1,0 +1,52 @@
+﻿@model IEnumerable<brouillon.Models.TaxeModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>afficherTous</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taux)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClassLibrary.Taxe item in ViewBag.listeTaxe) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taux)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeTAXE }) |
+            @Html.ActionLink("Details", "Details", new { code = item.codeTAXE }) |
+            @Html.ActionLink("Delete", "Delete", new { code = item.codeTAXE })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,11 +1,11 @@
-﻿@model IEnumerable<brouillon.Models.FournisseurModel>
+﻿@model IEnumerable<brouillon.Models.DepotModel>
 
 @{
     ViewBag.Title = "afficherTous";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FOURNISSEURS</h2>
+<h2>afficherTous</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,6 +17,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.localisation)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nom)
@@ -39,13 +42,16 @@
         <th></th>
     </tr>
 
-@foreach (ClassLibrary.Fournisseur item in ViewBag.listeFournisseur) {
+@foreach (ClassLibrary.Depot item in ViewBag.listeDepot) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.adresse)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.localisation)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nom)
@@ -66,9 +72,9 @@
             @Html.DisplayFor(modelItem => item.date_c)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { code=item.codeFOURNISSEUR }) |
-            @Html.ActionLink("Details", "Details", new { code = item.codeFOURNISSEUR }) |
-            @Html.ActionLink("Delete", "Delete", new { code = item.codeFOURNISSEUR })
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeDEPOT }) |
+            @Html.ActionLink("Details", "Details", new { code=item.codeDEPOT }) |
+            @Html.ActionLink("Delete", "Delete", new { code=item.codeDEPOT })
         </td>
     </tr>
 }

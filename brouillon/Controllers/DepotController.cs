@@ -9,29 +9,31 @@ using System.Web.Mvc;
 
 namespace brouillon.Controllers
 {
-    public class FournisseurController : Controller
+    public class DepotController : Controller
     {
-        DAOFournisseur dao = new DAOFournisseur();
+        DAODepot dao = new DAODepot();
         // GET: Marketer
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Marketer/Details/5
+        // GET: Depot/Details/5
         public ActionResult Details(string code)
         {
-            Fournisseur x = dao.rechercher(code);
+            Depot x = dao.rechercher(code);
 
-            FournisseurModel pm = new FournisseurModel
+            DepotModel pm = new DepotModel
             {
-                codeFOURNISSEUR = x.codeFOURNISSEUR,
+                codeDEPOT = x.codeDEPOT,
                 nom = x.nom,
                 adresse = x.adresse,
                 email = x.email,
                 pays = x.pays,
                 telephone = x.telephone,
-                ville = x.ville
+                ville = x.ville,
+                localisation = x.localisation
+               
             };
 
             if (x == null)
@@ -46,22 +48,22 @@ namespace brouillon.Controllers
             return View("Create");
         }
 
-        // GET: Fournisseur/Create
-        public ActionResult Create(Fournisseur m)
+        // GET: Depot/Create
+        public ActionResult Create(Depot m)
         {
-            FournisseurModel pm = new FournisseurModel();
+            DepotModel pm = new DepotModel();
 
             return View("Create", pm);
         }
 
-        // POST: Fournisseur/Create
+        // POST: Depot/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                Fournisseur x = new Fournisseur
+                Depot x = new Depot
                 {
                     nom = collection["nom"],
                     ville = collection["ville"],
@@ -69,6 +71,7 @@ namespace brouillon.Controllers
                     telephone = collection["telephone"],
                     email = collection["email"],
                     adresse = collection["adresse"],
+                    localisation = collection["localisation"],
 
 
                     //*******
@@ -90,12 +93,12 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Fournisseur/Edit/5
+        // GET: Depot/Edit/5
         public ActionResult Edit(string code)
         {
-            Fournisseur x = dao.rechercher(code);
+            Depot x = dao.rechercher(code);
 
-            FournisseurModel pm = new FournisseurModel
+            DepotModel pm = new DepotModel
             {
                 nom = x.nom,
                 ville = x.ville,
@@ -103,21 +106,22 @@ namespace brouillon.Controllers
                 telephone = x.telephone,
                 email = x.email,
                 adresse = x.adresse,
+                localisation = x.localisation,
 
 
                 ///*******
                 /// 
                 codeU = x.codeU,
-                codeFOURNISSEUR = x.codeFOURNISSEUR
-                 
+                codeDEPOT = x.codeDEPOT
+
             };
 
             return View(pm);
         }
 
-        // POST: Fournisseur/Edit/5
+        // POST: Depot/Edit/5
         [HttpPost]
-        public ActionResult Edit(Fournisseur x)
+        public ActionResult Edit(Depot x)
         {
             try
             {
@@ -134,13 +138,13 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Fournisseur/Delete/5
+        // GET: Depot/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Fournisseur/Delete/5
+        // POST: Depot/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -158,9 +162,9 @@ namespace brouillon.Controllers
 
         public ActionResult afficherTous()
         {
-            IEnumerable<Fournisseur> ls = dao.rechercherTous();
+            IEnumerable<Depot> ls = dao.rechercherTous();
 
-            ViewBag.listeFournisseur = ls;
+            ViewBag.listeDepot = ls;
 
             return View();
         }

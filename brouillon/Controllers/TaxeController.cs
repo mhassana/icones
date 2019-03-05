@@ -9,29 +9,26 @@ using System.Web.Mvc;
 
 namespace brouillon.Controllers
 {
-    public class FournisseurController : Controller
+    public class TaxeController : Controller
     {
-        DAOFournisseur dao = new DAOFournisseur();
-        // GET: Marketer
+        DAOTaxe dao = new DAOTaxe();
+        // GET: Taxe
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Marketer/Details/5
+        // GET: Taxe/Details/5
         public ActionResult Details(string code)
         {
-            Fournisseur x = dao.rechercher(code);
+            Taxe x = dao.rechercher(code);
 
-            FournisseurModel pm = new FournisseurModel
+            TaxeModel pm = new TaxeModel
             {
-                codeFOURNISSEUR = x.codeFOURNISSEUR,
-                nom = x.nom,
-                adresse = x.adresse,
-                email = x.email,
-                pays = x.pays,
-                telephone = x.telephone,
-                ville = x.ville
+                codeTAXE = x.codeTAXE,
+                libelle = x.libelle,
+                taux = x.taux,
+
             };
 
             if (x == null)
@@ -46,36 +43,31 @@ namespace brouillon.Controllers
             return View("Create");
         }
 
-        // GET: Fournisseur/Create
-        public ActionResult Create(Fournisseur m)
+        // GET: Taxe/Create
+        public ActionResult Create(Taxe m)
         {
-            FournisseurModel pm = new FournisseurModel();
+            TaxeModel pm = new TaxeModel();
 
             return View("Create", pm);
         }
 
-        // POST: Fournisseur/Create
+        // POST: Taxe/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                Fournisseur x = new Fournisseur
+                Taxe x = new Taxe
                 {
-                    nom = collection["nom"],
-                    ville = collection["ville"],
-                    pays = collection["pays"],
-                    telephone = collection["telephone"],
-                    email = collection["email"],
-                    adresse = collection["adresse"],
+                    libelle = collection["libelle"],
+                     taux = decimal.Parse(collection["taux"]),
 
 
                     //*******
 
                     codeU = collection["codeU"],
-                    date_c = DateTime.Now,
-                    //codePRODUIT = "PDT20192208"
+                    date_c = DateTime.Now
                 };
 
 
@@ -90,34 +82,30 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Fournisseur/Edit/5
+        // GET: Taxe/Edit/5
         public ActionResult Edit(string code)
         {
-            Fournisseur x = dao.rechercher(code);
+            Taxe x = dao.rechercher(code);
 
-            FournisseurModel pm = new FournisseurModel
+            TaxeModel pm = new TaxeModel
             {
-                nom = x.nom,
-                ville = x.ville,
-                pays = x.pays,
-                telephone = x.telephone,
-                email = x.email,
-                adresse = x.adresse,
+                libelle = x.libelle,
+                taux = x.taux,
 
 
                 ///*******
                 /// 
                 codeU = x.codeU,
-                codeFOURNISSEUR = x.codeFOURNISSEUR
-                 
+                codeTAXE = x.codeTAXE
+
             };
 
             return View(pm);
         }
 
-        // POST: Fournisseur/Edit/5
+        // POST: Taxe/Edit/5
         [HttpPost]
-        public ActionResult Edit(Fournisseur x)
+        public ActionResult Edit(Taxe x)
         {
             try
             {
@@ -134,13 +122,13 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Fournisseur/Delete/5
+        // GET: Depot/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Fournisseur/Delete/5
+        // POST: Taxe/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -158,9 +146,9 @@ namespace brouillon.Controllers
 
         public ActionResult afficherTous()
         {
-            IEnumerable<Fournisseur> ls = dao.rechercherTous();
+            IEnumerable<Taxe> ls = dao.rechercherTous();
 
-            ViewBag.listeFournisseur = ls;
+            ViewBag.listeTaxe = ls;
 
             return View();
         }

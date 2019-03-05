@@ -1,4 +1,4 @@
-﻿@model brouillon.Models.FournisseurModel
+﻿@model brouillon.Models.DepotModel
 
 @{
     ViewBag.Title = "Edit";
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>FournisseurModel</h4>
+        <h4>DepotModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -29,6 +29,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.localisation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.localisation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.localisation, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -72,21 +80,13 @@
             </div>
         </div>
 
-        @Html.HiddenFor(model => model.codeFOURNISSEUR)
+        @Html.HiddenFor(model => model.codeDEPOT)
 
         <div class="form-group">
             @Html.LabelFor(model => model.date_c, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.date_c, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.date_c, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.codeFOURNISSEUR, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.codeFOURNISSEUR, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.codeFOURNISSEUR, "", new { @class = "text-danger" })
             </div>
         </div>
 
