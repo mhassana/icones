@@ -1,15 +1,17 @@
-﻿using brouillon.Models;
-using ClassLibrary;
-using ClassLibrary.DAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using ClassLibrary;
+using ClassLibrary.DAO;
+using ClassLibrary.DAO.IDAO;
+using brouillon.Models;
+using System.Data;
 
 namespace brouillon.Controllers
 {
     public class TaxeController : Controller
     {
-        DAOTaxe dao = new DAOTaxe();
+        IDAOTaxe dao = new DAOTaxe();
 
         // GET: Taxe
         public ActionResult Index()
@@ -26,7 +28,7 @@ namespace brouillon.Controllers
             {
                 codeTAXE = x.codeTAXE,
                 libelle = x.libelle,
-                taux = x.taux,
+                taux = x.taux
 
             };
 
@@ -43,7 +45,7 @@ namespace brouillon.Controllers
         {
             TaxeModel tm = new TaxeModel();
 
-            return View("Create",tm);
+            return View("Create", tm);
         }
 
         // POST: Taxe/Create
@@ -53,19 +55,28 @@ namespace brouillon.Controllers
             try
             {
                 // TODO: Add insert logic here
+
+                string s = "";
+                s = collection["taux"];
+                char decimalSymbol = ',';
+                var curr = System.Windows.Forms.Application.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
+                s = s.Replace(".", curr).Replace(decimalSymbol.ToString(), curr);
+
                 Taxe x = new Taxe
                 {
                     libelle = collection["libelle"],
-                    taux = decimal.Parse(collection["taux"]),
+                    taux = decimal.Parse(s),
 
 
                     //*******
 
-                    codeU = collection["codeU"],
+                    codeU = collection["codeU"]
                     //date_c = DateTime.Now
                 };
 
                 dao.ajouter(x);
+                
 
                 return RedirectToAction("afficherTous");
             }
@@ -90,7 +101,7 @@ namespace brouillon.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("afficherTous");
             }
             catch
             {

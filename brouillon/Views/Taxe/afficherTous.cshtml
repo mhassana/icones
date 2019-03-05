@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>afficherTous</h2>
+<h2>TAXES</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,6 +29,9 @@
 
 @foreach (ClassLibrary.Taxe item in ViewBag.listeTaxe) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeTAXE)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.libelle)
         </td>

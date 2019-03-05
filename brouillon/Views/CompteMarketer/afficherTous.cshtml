@@ -1,0 +1,51 @@
+﻿@model IEnumerable<brouillon.Models.CompteMarketerModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+}
+
+<h2>COMPTES MARKETERS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.montant_net)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeMARKETER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClassLibrary.Compte_marketer item in ViewBag.listeCompte_marketer) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.montant_net)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeMARKETER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeCOMPTE_MARKETER }) |
+            @Html.ActionLink("Details", "Details", new { code = item.codeCOMPTE_MARKETER }) |
+            @Html.ActionLink("Delete", "Delete", new { code = item.codeCOMPTE_MARKETER })
+        </td>
+    </tr>
+}
+
+</table>

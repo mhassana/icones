@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using ClassLibrary;
 using ClassLibrary.DAO;
+using ClassLibrary.DAO.IDAO;
 using brouillon.Models;
 using System.Data;
-using ClassLibrary.DAO.IDAO;
 
 namespace brouillon.Controllers
 {

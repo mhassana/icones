@@ -1,18 +1,18 @@
-﻿@model brouillon.Models.TaxeModel
+﻿@model brouillon.Models.FacturationMarketerModel
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Create</h2>
+
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TaxeModel</h4>
+        <h4>FacturationMarketerModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -24,10 +24,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.taux, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.montant_paye, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.taux, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.taux, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.montant_paye, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.montant_paye, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.montant_restant, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.montant_restant, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.montant_restant, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.montant_total, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.montant_total, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.montant_total, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -39,13 +55,21 @@
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
+            @Html.LabelFor(model => model.codeCOMMANDE_MARKETER, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.codeCOMMANDE_MARKETER, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.codeCOMMANDE_MARKETER, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.date_c, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.date_c, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.date_c, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
