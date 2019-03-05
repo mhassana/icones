@@ -24,6 +24,6 @@ namespace Contrat.Contrat
         public System.DateTime date_c { get; set; }
 
         public virtual Utilisateur Utilisateur { get; set; }
-        public virtual ICollection<Historique> Historiques { get; set; }
+        public virtual ICollection<Historique> Historiques { get; set; } 
     }
 }
