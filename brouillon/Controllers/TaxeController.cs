@@ -3,8 +3,6 @@ using ClassLibrary;
 using ClassLibrary.DAO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace brouillon.Controllers
@@ -12,6 +10,7 @@ namespace brouillon.Controllers
     public class TaxeController : Controller
     {
         DAOTaxe dao = new DAOTaxe();
+
         // GET: Taxe
         public ActionResult Index()
         {
@@ -38,17 +37,13 @@ namespace brouillon.Controllers
             return View(pm);
         }
 
-        public ActionResult Creer()
-        {
-            return View("Create");
-        }
 
         // GET: Taxe/Create
-        public ActionResult Create(Taxe m)
+        public ActionResult Create()
         {
-            TaxeModel pm = new TaxeModel();
+            TaxeModel tm = new TaxeModel();
 
-            return View("Create", pm);
+            return View("Create",tm);
         }
 
         // POST: Taxe/Create
@@ -61,15 +56,14 @@ namespace brouillon.Controllers
                 Taxe x = new Taxe
                 {
                     libelle = collection["libelle"],
-                     taux = decimal.Parse(collection["taux"]),
+                    taux = decimal.Parse(collection["taux"]),
 
 
                     //*******
 
                     codeU = collection["codeU"],
-                    date_c = DateTime.Now
+                    //date_c = DateTime.Now
                 };
-
 
                 dao.ajouter(x);
 
@@ -83,38 +77,20 @@ namespace brouillon.Controllers
         }
 
         // GET: Taxe/Edit/5
-        public ActionResult Edit(string code)
+        public ActionResult Edit(int id)
         {
-            Taxe x = dao.rechercher(code);
-
-            TaxeModel pm = new TaxeModel
-            {
-                libelle = x.libelle,
-                taux = x.taux,
-
-
-                ///*******
-                /// 
-                codeU = x.codeU,
-                codeTAXE = x.codeTAXE
-
-            };
-
-            return View(pm);
+            return View();
         }
 
         // POST: Taxe/Edit/5
         [HttpPost]
-        public ActionResult Edit(Taxe x)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-
-
-                dao.modifier(x);
                 // TODO: Add update logic here
 
-                return RedirectToAction("afficherTous");
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -122,7 +98,7 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Depot/Delete/5
+        // GET: Taxe/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
