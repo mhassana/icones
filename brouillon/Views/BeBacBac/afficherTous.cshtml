@@ -1,0 +1,63 @@
+﻿@model IEnumerable<brouillon.Models.BEBacBacModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+}
+
+<h2>afficherTous</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeCOMMANDE_MARKET)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeDEPOT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClassLibrary.BE_bac_bac item in ViewBag.listeBE_bac_bac) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeCOMMANDE_MARKET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeDEPOT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeBE_BAC_BAC }) |
+            @Html.ActionLink("Details", "Details", new { code=item.codeBE_BAC_BAC }) |
+            @Html.ActionLink("Delete", "Delete", new { code=item.codeBE_BAC_BAC })
+        </td>
+    </tr>
+}
+
+</table>

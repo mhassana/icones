@@ -9,26 +9,25 @@ using System.Data;
 
 namespace brouillon.Controllers
 {
-    public class TaxeController : Controller
+    public class CommandeMarketerController : Controller
     {
-        IDAOTaxe dao = new DAOTaxe();
+        IDAOCommandeMarketer dao = new DAOCommandeMarketer();
 
-        // GET: Taxe
+        // GET: Commande_marketer
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Taxe/Details/5
+        // GET: Commande_marketer/Details/5
         public ActionResult Details(string code)
         {
-            Taxe x = dao.rechercher(code);
+            Commande_marketer x = dao.rechercher(code);
 
-            TaxeModel pm = new TaxeModel
+            CommandeMarketerModel pm = new CommandeMarketerModel
             {
-                codeTAXE = x.codeTAXE,
-                libelle = x.libelle,
-                taux = x.taux
+                codeCOMMANDE_MARKETER = x.codeCOMMANDE_MARKETER,
+                quantite = x.quantite
 
             };
 
@@ -40,15 +39,15 @@ namespace brouillon.Controllers
         }
 
 
-        // GET: Taxe/Create
+        // GET: Commande_marketer/Create
         public ActionResult Create()
         {
-            TaxeModel tm = new TaxeModel();
+            CommandeMarketerModel tm = new CommandeMarketerModel();
 
             return View("Create", tm);
         }
 
-        // POST: Taxe/Create
+        // POST: Commande_marketer/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -57,26 +56,27 @@ namespace brouillon.Controllers
                 // TODO: Add insert logic here
 
                 string s = "";
-                s = collection["taux"];
+                s = collection["quantite"];
                 char decimalSymbol = ',';
                 var curr = System.Windows.Forms.Application.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
                 s = s.Replace(".", curr).Replace(decimalSymbol.ToString(), curr);
 
-                Taxe x = new Taxe
+                Commande_marketer x = new Commande_marketer
                 {
-                    libelle = collection["libelle"],
-                    taux = decimal.Parse(s),
+                    quantite = decimal.Parse(s),
 
 
                     //*******
 
-                    codeU = collection["codeU"]
-                    //date_c = DateTime.Now
+                    codeU = collection["codeU"],
+                    codeFOURNISSEUR = collection["codeFOURNISSEUR"],
+                    codePRODUIT = collection["codePRODUIT"],
+                    codeMARKETER = collection["codeMARKETER"]
                 };
 
                 dao.ajouter(x);
-                
+
 
                 return RedirectToAction("afficherTous");
             }
@@ -87,30 +87,29 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Taxe/Edit/5
+        // GET: Commande_marketer/Edit/5
         public ActionResult Edit(string code)
         {
-            Taxe x = dao.rechercher(code);
+            Commande_marketer x = dao.rechercher(code);
 
-            TaxeModel pm = new TaxeModel
+            CommandeMarketerModel pm = new CommandeMarketerModel
             {
-                libelle = x.libelle,
-                taux = x.taux,
+                quantite = x.quantite,
 
 
                 ///*******
                 /// 
                 codeU = x.codeU,
-                codeTAXE = x.codeTAXE
+                codeCOMMANDE_MARKETER = x.codeCOMMANDE_MARKETER
 
             };
 
             return View(pm);
         }
 
-        // POST: Taxe/Edit/5
+        // POST: Commande_marketer/Edit/5
         [HttpPost]
-        public ActionResult Edit(Taxe x)
+        public ActionResult Edit(Commande_marketer x)
         {
             try
             {
@@ -127,13 +126,13 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: Taxe/Delete/5
+        // GET: Commande_marketer/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Taxe/Delete/5
+        // POST: Commande_marketer/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -151,9 +150,9 @@ namespace brouillon.Controllers
 
         public ActionResult afficherTous()
         {
-            IEnumerable<Taxe> ls = dao.rechercherTous();
+            IEnumerable<Commande_marketer> ls = dao.rechercherTous();
 
-            ViewBag.listeTaxe = ls;
+            ViewBag.listeCommande_marketer = ls;
 
             return View();
         }

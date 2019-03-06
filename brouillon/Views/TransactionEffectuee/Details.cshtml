@@ -1,0 +1,66 @@
+﻿@model brouillon.Models.TransactionEffectueeModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransactionEffectueeModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date_transaction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_transaction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.montant_transaction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.montant_transaction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codeU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codeCOMPTE_MARKETER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeCOMPTE_MARKETER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_c)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_c)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codeTRANSACTION_EFFECTUEE }) |
+    @Html.ActionLink("Back to List", "afficherTous")
+</p>

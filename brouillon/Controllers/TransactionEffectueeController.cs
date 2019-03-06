@@ -10,25 +10,27 @@ using System.Web.Mvc;
 
 namespace brouillon.Controllers
 {
-    public class CompteMarketerController : Controller
+    public class TransactionEffectueeController : Controller
     {
-        IDAOCompteMarketer dao = new DAOCompteMarketer();
+        IDAOTransaction_effectuee dao = new DAOTransaction_effectuee();
         // GET: Marketer
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: CompteMarketer/Details/5
+        // GET: Transaction_effectuee/Details/5
         public ActionResult Details(string code)
         {
-            Compte_marketer x = dao.rechercher(code);
+            Transaction_effectuee x = dao.rechercher(code);
 
-            CompteMarketerModel pm = new CompteMarketerModel
+            TransactionEffectueeModel pm = new TransactionEffectueeModel
             {
+                codeTRANSACTION_EFFECTUEE = x.codeTRANSACTION_EFFECTUEE,
+                libelle = x.libelle,
+                montant_transaction = x.montant_transaction,
                 codeCOMPTE_MARKETER = x.codeCOMPTE_MARKETER,
-                montant_net = x.montant_net,
-                codeMARKETER = x.codeMARKETER,
+                codeU = x.codeU
 
             };
 
@@ -44,29 +46,37 @@ namespace brouillon.Controllers
             return View("Create");
         }
 
-        // GET: CompteMarketer/Create
-        public ActionResult Create(Compte_marketer m)
+        // GET: Transaction_effectuee/Create
+        public ActionResult Create(Transaction_effectuee m)
         {
-            CompteMarketerModel pm = new CompteMarketerModel();
+            TransactionEffectueeModel pm = new TransactionEffectueeModel();
 
             return View("Create", pm);
         }
 
-        // POST: CompteMarketer/Create
+        // POST: Transaction_effectuee/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
+                string s = "";
+                s = collection["montant_transaction"];
+                char decimalSymbol = ',';
+                var curr = System.Windows.Forms.Application.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
+                s = s.Replace(".", curr).Replace(decimalSymbol.ToString(), curr);
                 // TODO: Add insert logic here
-                Compte_marketer x = new Compte_marketer
+                Transaction_effectuee x = new Transaction_effectuee
                 {
-                    montant_net = decimal.Parse(collection["montant_net"]),
+                    libelle = collection["libelle"],
+                    date_transaction = DateTime.Now,
+                    montant_transaction = decimal.Parse(s),
 
 
                     //*******
 
-                    codeMARKETER = collection["codeMARKETER"],
+                    codeCOMPTE_MARKETER = collection["codeCOMPTE_MARKETER"],
                     codeU = collection["codeU"],
                     date_c = DateTime.Now,
                     //codePRODUIT = "PDT20192208"
@@ -84,14 +94,16 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: CompteMarketer/Edit/5
+        // GET: Transaction_effectuee/Edit/5
         public ActionResult Edit(string code)
         {
-            Compte_marketer x = dao.rechercher(code);
+            Transaction_effectuee x = dao.rechercher(code);
 
-            CompteMarketerModel pm = new CompteMarketerModel
+            TransactionEffectueeModel pm = new TransactionEffectueeModel
             {
-                montant_net = x.montant_net,
+                codeTRANSACTION_EFFECTUEE = x.codeTRANSACTION_EFFECTUEE,
+                libelle = x.libelle,
+                montant_transaction = x.montant_transaction,
 
 
                 ///*******
@@ -106,7 +118,7 @@ namespace brouillon.Controllers
 
         // POST: CompteMarketer/Edit/5
         [HttpPost]
-        public ActionResult Edit(Compte_marketer x)
+        public ActionResult Edit(Transaction_effectuee x)
         {
             try
             {
@@ -123,13 +135,13 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: CompteMarketer/Delete/5
+        // GET: Transaction_effectuee/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CompteMarketer/Delete/5
+        // POST: Transaction_effectuee/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -147,9 +159,9 @@ namespace brouillon.Controllers
 
         public ActionResult afficherTous()
         {
-            IEnumerable<Compte_marketer> ls = dao.rechercherTous();
+            IEnumerable<Transaction_effectuee> ls = dao.rechercherTous();
 
-            ViewBag.listeCompte_marketer = ls;
+            ViewBag.listeTransaction_effectuee = ls;
 
             return View();
         }

@@ -173,6 +173,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BCModelsController.cs" />
+    <Compile Include="Controllers\BeBacBacController.cs" />
+    <Compile Include="Controllers\CommandeMarketerController.cs" />
     <Compile Include="Controllers\CompteMarketerController.cs" />
     <Compile Include="Controllers\DepotController.cs" />
     <Compile Include="Controllers\FactureMarketerController.cs" />
@@ -184,6 +186,8 @@
     <Compile Include="Controllers\Reglement_detteController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\TaxeController.cs" />
+    <Compile Include="Controllers\TrancheMarketerController.cs" />
+    <Compile Include="Controllers\TransactionEffectueeController.cs" />
     <Compile Include="DAL\isoftTankContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -330,6 +334,22 @@
     <Content Include="Views\FactureMarketer\Edit.cshtml" />
     <Content Include="Views\FactureMarketer\Create.cshtml" />
     <Content Include="Views\FactureMarketer\Details.cshtml" />
+    <Content Include="Views\TrancheMarketer\afficherTous.cshtml" />
+    <Content Include="Views\TrancheMarketer\Details.cshtml" />
+    <Content Include="Views\TrancheMarketer\Create.cshtml" />
+    <Content Include="Views\TrancheMarketer\Edit.cshtml" />
+    <Content Include="Views\TransactionEffectuee\afficherTous.cshtml" />
+    <Content Include="Views\TransactionEffectuee\Edit.cshtml" />
+    <Content Include="Views\TransactionEffectuee\Create.cshtml" />
+    <Content Include="Views\TransactionEffectuee\Details.cshtml" />
+    <Content Include="Views\CommandeMarketer\afficherTous.cshtml" />
+    <Content Include="Views\CommandeMarketer\Edit.cshtml" />
+    <Content Include="Views\CommandeMarketer\Create.cshtml" />
+    <Content Include="Views\CommandeMarketer\Details.cshtml" />
+    <Content Include="Views\BeBacBac\afficherTous.cshtml" />
+    <Content Include="Views\BeBacBac\Edit.cshtml" />
+    <Content Include="Views\BeBacBac\Create.cshtml" />
+    <Content Include="Views\BeBacBac\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
