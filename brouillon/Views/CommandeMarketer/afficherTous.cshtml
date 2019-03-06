@@ -1,0 +1,63 @@
+﻿@model IEnumerable<brouillon.Models.CommandeMarketerModel>
+
+@{
+    ViewBag.Title = "afficherTous";
+}
+
+<h2>afficherTous</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeFOURNISSEUR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeMARKETER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codePRODUIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClassLibrary.Commande_marketer item in ViewBag.listeCommande_marketer) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeFOURNISSEUR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeMARKETER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codePRODUIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { code=item.codeCOMMANDE_MARKETER }) |
+            @Html.ActionLink("Details", "Details", new { code = item.codeCOMMANDE_MARKETER }) |
+            @Html.ActionLink("Delete", "Delete", new { code = item.codeCOMMANDE_MARKETER })
+        </td>
+    </tr>
+}
+
+</table>

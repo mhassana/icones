@@ -1,34 +1,34 @@
-﻿using brouillon.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using ClassLibrary;
 using ClassLibrary.DAO;
 using ClassLibrary.DAO.IDAO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using brouillon.Models;
+using System.Data;
 
 namespace brouillon.Controllers
 {
-    public class CompteMarketerController : Controller
+    public class BeBacBacController : Controller
     {
-        IDAOCompteMarketer dao = new DAOCompteMarketer();
-        // GET: Marketer
+        IDAOBeBacBac dao = new DAOBeBacBac();
+
+        // GET: BE_bac_bac
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: CompteMarketer/Details/5
+        // GET: BE_bac_bac/Details/5
         public ActionResult Details(string code)
         {
-            Compte_marketer x = dao.rechercher(code);
+            BE_bac_bac x = dao.rechercher(code);
 
-            CompteMarketerModel pm = new CompteMarketerModel
+            BEBacBacModel pm = new BEBacBacModel
             {
-                codeCOMPTE_MARKETER = x.codeCOMPTE_MARKETER,
-                montant_net = x.montant_net,
-                codeMARKETER = x.codeMARKETER,
+                codeBE_BAC_BAC = x.codeBE_BAC_BAC,
+                quantite = x.quantite,
+                libelle = x.libelle
 
             };
 
@@ -39,41 +39,46 @@ namespace brouillon.Controllers
             return View(pm);
         }
 
-        public ActionResult Creer()
+
+        // GET: BE_bac_bac/Create
+        public ActionResult Create()
         {
-            return View("Create");
+            BEBacBacModel tm = new BEBacBacModel();
+
+            return View("Create", tm);
         }
 
-        // GET: CompteMarketer/Create
-        public ActionResult Create(Compte_marketer m)
-        {
-            CompteMarketerModel pm = new CompteMarketerModel();
-
-            return View("Create", pm);
-        }
-
-        // POST: CompteMarketer/Create
+        // POST: BE_bac_bac/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                Compte_marketer x = new Compte_marketer
+
+                string s = "";
+                s = collection["quantite"];
+                char decimalSymbol = ',';
+                var curr = System.Windows.Forms.Application.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
+                s = s.Replace(".", curr).Replace(decimalSymbol.ToString(), curr);
+
+                BE_bac_bac x = new BE_bac_bac
                 {
-                    montant_net = decimal.Parse(collection["montant_net"]),
+                    libelle = collection["libelle"],
+                    quantite = decimal.Parse(s),
 
 
                     //*******
 
-                    codeMARKETER = collection["codeMARKETER"],
                     codeU = collection["codeU"],
-                    date_c = DateTime.Now,
-                    //codePRODUIT = "PDT20192208"
+                    codeCOMMANDE_MARKET = collection["codeCOMMANDE_MARKET"],
+                    codeDEPOT = collection["codeDEPOT"]
+                    //date_c = DateTime.Now
                 };
 
-
                 dao.ajouter(x);
+
 
                 return RedirectToAction("afficherTous");
             }
@@ -84,29 +89,32 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: CompteMarketer/Edit/5
+        // GET: BE_bac_bac/Edit/5
         public ActionResult Edit(string code)
         {
-            Compte_marketer x = dao.rechercher(code);
+            BE_bac_bac x = dao.rechercher(code);
 
-            CompteMarketerModel pm = new CompteMarketerModel
+            BEBacBacModel pm = new BEBacBacModel
             {
-                montant_net = x.montant_net,
+                quantite = x.quantite,
+                libelle = x.libelle,
 
 
                 ///*******
                 /// 
                 codeU = x.codeU,
-                codeCOMPTE_MARKETER = x.codeCOMPTE_MARKETER
+                codeCOMMANDE_MARKET = x.codeCOMMANDE_MARKET,
+                codeDEPOT = x.codeDEPOT
+
 
             };
 
             return View(pm);
         }
 
-        // POST: CompteMarketer/Edit/5
+        // POST: BE_bac_bac/Edit/5
         [HttpPost]
-        public ActionResult Edit(Compte_marketer x)
+        public ActionResult Edit(BE_bac_bac x)
         {
             try
             {
@@ -123,13 +131,13 @@ namespace brouillon.Controllers
             }
         }
 
-        // GET: CompteMarketer/Delete/5
+        // GET: BE_bac_bac/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CompteMarketer/Delete/5
+        // POST: BE_bac_bac/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -137,7 +145,7 @@ namespace brouillon.Controllers
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("afficherTous");
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -147,9 +155,9 @@ namespace brouillon.Controllers
 
         public ActionResult afficherTous()
         {
-            IEnumerable<Compte_marketer> ls = dao.rechercherTous();
+            IEnumerable<BE_bac_bac> ls = dao.rechercherTous();
 
-            ViewBag.listeCompte_marketer = ls;
+            ViewBag.listeBE_bac_bac = ls;
 
             return View();
         }
