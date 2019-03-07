@@ -136,7 +136,7 @@ namespace ClassLibrary.DAO
 
             try
             {
-                u = db.Produits.First(x => x.designation == m.designation && x.libelle == m.libelle && x.prix == m.prix && x.unite_mesure == m.unite_mesure);
+                u = db.Produits.FirstOrDefault(x => x.designation == m.designation && x.libelle == m.libelle && x.prix == m.prix && x.unite_mesure == m.unite_mesure);
                 
             }
 

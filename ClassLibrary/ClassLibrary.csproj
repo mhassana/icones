@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Contrat">
+      <HintPath>..\Contrat\bin\Debug\Contrat.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\ArbreG\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -158,6 +161,10 @@
     <Compile Include="Marketer.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metier\IServices\ICreation.cs" />
+    <Compile Include="Metier\IServices\IDemandeApprovisionnement.cs" />
+    <Compile Include="Metier\ServicesImp\Creation.cs" />
+    <Compile Include="Metier\ServicesImp\DemandeApprovisionnement.cs" />
     <Compile Include="Navire.cs">
       <DependentUpon>isoftTankModel.tt</DependentUpon>
     </Compile>
